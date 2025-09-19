@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ExternalLink, Github, ArrowRight } from 'lucide-react'
+import { Globe, Zap, ChevronRight } from 'lucide-react'
 import { Button } from './Button'
+import Image from 'next/image'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -18,20 +19,8 @@ export function PortfolioSection() {
     triggerOnce: true,
   })
 
-  const getFilterClass = (color: string) => {
-    switch (color) {
-      case 'var(--accent-primary)': return 'portfolio-filter-active'
-      case 'var(--accent-secondary)': return 'portfolio-filter-secondary'
-      case 'var(--accent-tertiary)': return 'portfolio-filter-tertiary'
-      case 'var(--accent-emerald)': return 'portfolio-filter-emerald'
-      case 'var(--accent-gray)': return 'portfolio-filter-gray'
-      default: return 'portfolio-filter-active'
-    }
-  }
-
   const sectionRef = useRef<HTMLDivElement>(null)
   const projectsRef = useRef<HTMLDivElement>(null)
-  const [selectedCategory, setSelectedCategory] = useState('all')
 
   useEffect(() => {
     if (inView) {
@@ -49,7 +38,7 @@ export function PortfolioSection() {
               opacity: 1,
               scale: 1,
               duration: 1,
-              stagger: 0.1,
+              stagger: 0.2,
               ease: 'power3.out',
             }
           )
@@ -60,247 +49,242 @@ export function PortfolioSection() {
     }
   }, [inView])
 
-  const categories = [
-    { name: 'all', color: 'var(--accent-gray)' },
-    { name: 'web', color: 'var(--accent-primary)' },
-    { name: 'mobile', color: 'var(--accent-secondary)' },
-    { name: 'ecommerce', color: 'var(--accent-tertiary)' },
-    { name: 'design', color: 'var(--accent-emerald)' }
-  ]
-
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A modern, scalable e-commerce solution with advanced features and seamless user experience.',
-      image: '/api/placeholder/600/400',
-      category: 'ecommerce',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: '#',
+      title: 'Baking Platform',
+      subtitle: 'Online Classes & Community Hub',
+      description: 'A scalable baking education platform that combines on-demand courses, live video classes, and community interaction. Users can register, purchase access via Stripe, and learn through structured lessons with progress tracking and downloadable resources.',
+      category: 'Education Platform',
+      status: 'Live',
+      year: '2025',
+      liveUrl: 'https://baking.northcodelab.com',
       githubUrl: '#',
+      technologies: ['Laravel 12', 'MySQL', 'AWS S3 & SES', 'Stripe', 'Tailwind CSS'],
+      features: ['🔐 User Authentication & Roles', '💳 Stripe Payments & Subscriptions', '🎥 Video Conferencing for Live Classes', '📚 Course Management with Progress Tracking', '📄 Downloadable Documentation & Resources', '🌐 Scalable Architecture on AWS'],
+      color: 'from-purple-500 to-pink-500',
+      icon: '🍰',
+      imagePath: '/portfolio/baking_h.png',
+      imageOrientation: 'horizontal',
+      imageAlt: 'Baking Platform - Online Classes & Community Hub Interface'
     },
     {
       id: 2,
-      title: 'Mobile Banking App',
-      description: 'Secure and intuitive mobile banking application with real-time transactions.',
-      image: '/api/placeholder/600/400',
-      category: 'mobile',
-      tags: ['React Native', 'TypeScript', 'Firebase', 'Biometric Auth'],
-      liveUrl: '#',
+      title: 'Care Platform',
+      subtitle: 'Elderly Care & Health Management System',
+      description: 'A digital health solution focused on elderly care, enabling families, caregivers, and doctors to manage medicines, monitor vital signs, and coordinate appointments. The system supports four user roles, each with tailored access, ensuring seamless collaboration between patients, caregivers, and medical professionals.',
+      category: 'Healthcare',
+      status: 'Live',
+      year: '2025',
+      liveUrl: 'https://care.northcodelab.com/',
       githubUrl: '#',
+      technologies: ['React + Next.js', 'Node.js', 'MySQL', 'PHP Landing Page', 'Authentication & Role-based Access'],
+      features: ['🧑‍⚕️ Multi-role System (patients, caregivers, doctors, admins)', '💊 Medication Management (reminders, logs, history)', '📅 Appointment Scheduling & Tracking', '❤️ Vital Signs Monitoring (data visualization & history)', '🔐 Secure Authentication & Role Permissions', '🌍 Landing Page + WebApp Integration'],
+      color: 'from-blue-500 to-cyan-500',
+      icon: '🏥',
+      imagePath: '/portfolio/care_v.png',
+      imageOrientation: 'vertical',
+      imageAlt: 'Care Platform - Elderly Care & Health Management System Interface'
     },
     {
       id: 3,
-      title: 'SaaS Dashboard',
-      description: 'Comprehensive analytics dashboard with real-time data visualization and reporting.',
-      image: '/api/placeholder/600/400',
-      category: 'web',
-      tags: ['Next.js', 'D3.js', 'PostgreSQL', 'Redis'],
-      liveUrl: '#',
+      title: 'Health Solutions',
+      subtitle: 'Telemedicine & Patient Management Platform',
+      description: 'A full-stack telemedicine platform designed for doctors, patients, and healthcare providers, integrating consultations, patient management, and automated marketing in one place. Built with Laravel & Livewire, it enables both clinical and business workflows to scale smoothly.',
+      category: 'Telemedicine',
+      status: 'Live',
+      year: '2025',
+      liveUrl: 'https://health.northcodelab.com/',
       githubUrl: '#',
-    },
-    {
-      id: 4,
-      title: 'Brand Identity Design',
-      description: 'Complete brand identity and design system for a tech startup.',
-      image: '/api/placeholder/600/400',
-      category: 'design',
-      tags: ['Figma', 'Illustrator', 'Brand Strategy', 'Design System'],
-      liveUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 5,
-      title: 'Real Estate Platform',
-      description: 'Property listing platform with virtual tours and advanced search capabilities.',
-      image: '/api/placeholder/600/400',
-      category: 'web',
-      tags: ['Vue.js', 'Express', 'MySQL', 'WebRTC'],
-      liveUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 6,
-      title: 'Fitness Tracking App',
-      description: 'Personal fitness companion with workout tracking and social features.',
-      image: '/api/placeholder/600/400',
-      category: 'mobile',
-      tags: ['Flutter', 'Firebase', 'HealthKit', 'Social Features'],
-      liveUrl: '#',
-      githubUrl: '#',
+      technologies: ['Laravel + Livewire', 'MySQL', 'Stripe', 'AI-powered Chatbot', 'Email Automation & Marketing Tools'],
+      features: ['🏥 Telemedicine & Virtual Consultations', '👨‍⚕️ Doctor & Patient Management (records, appointments, tracking)', '📈 Integrated Marketing & Lead Management', '💳 Payments with Stripe (consultations, subscriptions, packages)', '🤖 AI Chatbot for Patient Support', '📧 Email Campaigns & Automated Follow-ups'],
+      color: 'from-green-500 to-emerald-500',
+      icon: '💡',
+      imagePath: '/portfolio/health_h.png',
+      imageOrientation: 'horizontal',
+      imageAlt: 'Health Solutions - Telemedicine & Patient Management Platform Interface'
     },
   ]
-
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
 
   return (
     <section
       ref={sectionRef}
       id="portfolio"
-      className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl blur-purple" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full blur-3xl blur-blue" />
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section header */}
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-6">
-            <span className="text-gradient">Our Portfolio</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-4 sm:mb-6">
+            <span className="text-gradient">
+              Featured
+            </span>
+            <br />
+            <span className="text-gradient-blue">
+              Projects
+            </span>
           </h2>
-          <p className="text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            Discover our latest projects and the innovative solutions we&apos;ve created
+          
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            Professional digital solutions built with modern technologies
           </p>
         </motion.div>
 
-        {/* Category filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category.name}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedCategory(category.name)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                selectedCategory === category.name
-                  ? getFilterClass(category.color)
-                  : 'btn-secondary'
-              }`}
+        {/* Projects Grid */}
+        <div ref={projectsRef} className="space-y-16 sm:space-y-20">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className={`group ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex flex-col lg:flex items-start lg:items-center gap-8 sm:gap-10 lg:gap-12`}
             >
-              {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* Projects grid */}
-        <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-                className="group relative"
-              >
-                <div className="card-primary rounded-3xl overflow-hidden h-full hover:shadow-primary transition-all duration-500 group-hover:border-hover">
-                  {/* Project image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <div className="w-full h-full flex items-center justify-center portfolio-project-bg">
-                      <div className="text-6xl text-white/30">
-                        {project.category === 'web' && '🌐'}
-                        {project.category === 'mobile' && '📱'}
-                        {project.category === 'ecommerce' && '🛒'}
-                        {project.category === 'design' && '🎨'}
-                      </div>
-                    </div>
-                    
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        href={project.liveUrl}
-                        className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5 text-white" />
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        href={project.githubUrl}
-                        className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                      >
-                        <Github className="w-5 h-5 text-white" />
-                      </motion.a>
-                    </div>
+              {/* Project Content */}
+              <div className="flex-1 space-y-4 sm:space-y-6 w-full">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <span className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gray-800/50 text-gray-300 border border-gray-700/50">
+                      {project.category}
+                    </span>
+                    <span className="text-xs sm:text-sm text-gray-400">{project.year}</span>
+                    <span className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
+                      {project.status}
+                    </span>
                   </div>
+                  
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-base sm:text-lg text-gray-300 font-medium">
+                    {project.subtitle}
+                  </p>
+                  
+                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
 
-                  {/* Project content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-gradient-blue transition-colors">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-tertiary mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 rounded-full text-xs text-secondary portfolio-tag"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* View project button */}
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      className="flex items-center gap-2 font-semibold transition-colors portfolio-link"
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
-                      View Project
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+                {/* Technologies */}
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">Technologies</h4>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 sm:px-3 py-1 rounded text-xs font-medium bg-gray-800/30 text-gray-300 border border-gray-700/30"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+
+                {/* Features */}
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">Key Features</h4>
+                  <div className="space-y-1.5 sm:space-y-2">
+                    {project.features.map((feature) => (
+                      <div key={feature} className="flex items-start gap-2 sm:gap-3">
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-gray-400 mt-1.5 sm:mt-2 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-300 leading-relaxed">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Project Image */}
+              <div className={`flex-1 relative ${project.imageOrientation === 'vertical' ? 'w-full lg:w-auto flex justify-center' : 'w-full lg:w-auto'}`}>
+                <div className={`relative rounded-lg sm:rounded-xl overflow-hidden bg-gray-900/30 border border-gray-800/50 p-2 sm:p-4 ${
+                  project.imageOrientation === 'vertical' 
+                    ? 'w-[225px] md:w-[355px]' 
+                    : 'w-full'
+                }`}>
+                  <div className={`relative group/image ${
+                    project.imageOrientation === 'vertical' 
+                      ? 'h-[400px] sm:h-[500px] lg:h-[600px] w-[209px] md:w-[321px] mx-auto' 
+                      : 'h-[188px] sm:h-[300px] w-full'
+                  }`}>
+                    <Image
+                      src={project.imagePath}
+                      alt={project.imageAlt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                      priority={index < 2}
+                    />
+                    
+                    {/* Hover Overlay with Button */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base"
+                      >
+                        <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
+                        View Project
+                        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </motion.a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-20"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center mt-16 sm:mt-20"
         >
-          <div className="glass-effect rounded-3xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold font-space-grotesk mb-6">
-              <span className="text-gradient">Ready to Create</span>
+          <div className="card-primary p-6 sm:p-8 lg:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-space-grotesk mb-4 sm:mb-6">
+              <span className="text-gradient">
+                Ready to Start
+              </span>
               <br />
-              <span className="text-gradient-blue">Something Amazing?</span>
+              <span className="text-gradient-blue">
+                Your Project?
+              </span>
             </h3>
             
-            <p className="text-xl text-secondary mb-8 leading-relaxed">
-              Let&apos;s bring your vision to life with our expertise and creativity.
+            <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+              Let&apos;s work together to bring your vision to life with professional digital solutions.
             </p>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button 
                 size="lg"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group w-full sm:w-auto"
               >
-                Start Your Project
+                <span className="flex items-center justify-center gap-3">
+                  Get Started
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
+                </span>
               </Button>
+              
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto text-sm sm:text-base"
+              >
+                View All Projects
+              </motion.button>
             </div>
           </div>
         </motion.div>
