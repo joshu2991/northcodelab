@@ -65,16 +65,10 @@ export function HeroSection() {
     <section
       ref={heroRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
-      style={{ willChange: 'auto' }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 will-change-auto"
     >
       {/* Static gradient background */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(135deg, var(--primary-black), var(--secondary-gray))`
-        }}
-      />
+      <div className="absolute inset-0 bg-gradient-hero" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -87,12 +81,8 @@ export function HeroSection() {
           {/* Main title */}
           <h1
             ref={titleRef}
-            className="text-5xl md:text-7xl lg:text-8xl font-space-grotesk leading-tight"
-            style={{
-              letterSpacing: '-0.05em',
-              fontWeight: 800,
-              minHeight: '1.2em' // Prevent layout shift
-            }}
+            className="text-5xl md:text-7xl lg:text-8xl font-space-grotesk leading-tight letter-spacing-tight font-weight-800"
+            style={{ minHeight: '1.2em' }} // Prevent layout shift
           >
             <span className="text-gradient animate-gradient">
               {displayedText}
@@ -100,8 +90,7 @@ export function HeroSection() {
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{ duration: 0.6, repeat: Infinity }}
-                  className="inline-block w-0.5 h-16 bg-white ml-2"
-                  style={{ verticalAlign: 'text-top' }}
+                  className="inline-block w-0.5 h-16 bg-white ml-2 vertical-align-text-top"
                 />
               )}
             </span>
@@ -131,13 +120,12 @@ export function HeroSection() {
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8" style={{ opacity: 0 }}>
             <Button
               size="lg"
-              className="group relative overflow-hidden"
+              className="group"
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, var(--accent-secondary), #000000)' }} />
             </Button>
           </div>
 
@@ -154,10 +142,12 @@ export function HeroSection() {
             ].map(({ icon: Icon, text }, index) => (
               <div
                 key={text}
-                className="flex flex-col items-center gap-2 text-tertiary"
+                className="flex flex-col items-center gap-2 text-tertiary group"
               >
-                <Icon className="w-8 h-8 text-accent-primary" style={{ color: 'var(--accent-primary)' }} />
-                <span className="text-sm font-medium">{text}</span>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 glass-effect">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-sm font-medium group-hover:text-accent transition-colors">{text}</span>
               </div>
             ))}
           </div>

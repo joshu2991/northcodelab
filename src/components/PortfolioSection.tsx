@@ -18,6 +18,17 @@ export function PortfolioSection() {
     triggerOnce: true,
   })
 
+  const getFilterClass = (color: string) => {
+    switch (color) {
+      case 'var(--accent-primary)': return 'portfolio-filter-active'
+      case 'var(--accent-secondary)': return 'portfolio-filter-secondary'
+      case 'var(--accent-tertiary)': return 'portfolio-filter-tertiary'
+      case 'var(--accent-emerald)': return 'portfolio-filter-emerald'
+      case 'var(--accent-gray)': return 'portfolio-filter-gray'
+      default: return 'portfolio-filter-active'
+    }
+  }
+
   const sectionRef = useRef<HTMLDivElement>(null)
   const projectsRef = useRef<HTMLDivElement>(null)
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -47,7 +58,13 @@ export function PortfolioSection() {
     }
   }, [inView])
 
-  const categories = ['all', 'web', 'mobile', 'ecommerce', 'design']
+  const categories = [
+    { name: 'all', color: 'var(--accent-gray)' },
+    { name: 'web', color: 'var(--accent-primary)' },
+    { name: 'mobile', color: 'var(--accent-secondary)' },
+    { name: 'ecommerce', color: 'var(--accent-tertiary)' },
+    { name: 'design', color: 'var(--accent-emerald)' }
+  ]
 
   const projects = [
     {
@@ -124,8 +141,8 @@ export function PortfolioSection() {
     >
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-purple)' }} />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-blue)' }} />
+        <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl blur-purple" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full blur-3xl blur-blue" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -153,18 +170,17 @@ export function PortfolioSection() {
         >
           {categories.map((category) => (
             <motion.button
-              key={category}
+              key={category.name}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => setSelectedCategory(category.name)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'text-primary'
+                selectedCategory === category.name
+                  ? getFilterClass(category.color)
                   : 'btn-secondary'
               }`}
-              style={selectedCategory === category ? { background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary))' } : {}}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
             </motion.button>
           ))}
         </motion.div>
@@ -190,7 +206,7 @@ export function PortfolioSection() {
                 <div className="card-primary rounded-3xl overflow-hidden h-full hover:shadow-primary transition-all duration-500 group-hover:border-hover">
                   {/* Project image */}
                   <div className="relative h-64 overflow-hidden">
-                    <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--blur-blue), var(--blur-purple))' }}>
+                    <div className="w-full h-full flex items-center justify-center portfolio-project-bg">
                       <div className="text-6xl text-white/30">
                         {project.category === 'web' && '🌐'}
                         {project.category === 'mobile' && '📱'}
@@ -235,8 +251,7 @@ export function PortfolioSection() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs text-secondary"
-                          style={{ backgroundColor: 'var(--bg-glass)' }}
+                          className="px-3 py-1 rounded-full text-xs text-secondary portfolio-tag"
                         >
                           {tag}
                         </span>
@@ -246,8 +261,7 @@ export function PortfolioSection() {
                     {/* View project button */}
                     <motion.button
                       whileHover={{ x: 5 }}
-                      className="flex items-center gap-2 font-semibold transition-colors"
-                      style={{ color: 'var(--accent-primary)' }}
+                      className="flex items-center gap-2 font-semibold transition-colors portfolio-link"
                     >
                       View Project
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

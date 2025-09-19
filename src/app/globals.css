@@ -15,14 +15,17 @@
     
     /* Text Colors */
     --text-primary: #FFFFFF;
-    --text-secondary: #D1D5DB; /* gray-300 */
+    --text-secondary: #E5E7EB; /* gray-200 - improved contrast */
     --text-tertiary: #9CA3AF; /* gray-400 */
     --text-muted: #6B7280; /* gray-500 */
+    --text-accent: #00AEEF; /* amber-500 - for links and highlights */
     
-    /* Accent Colors */
-    --accent-primary: #9CA3AF; /* gray-400 - main accent */
-    --accent-secondary: #6B7280; /* gray-500 */
-    --accent-tertiary: #4B5563; /* gray-600 */
+    /* Accent Colors - Simplified 3-Color Palette */
+    --accent-primary: #00AEEF; /* amber-500 - main accent for CTAs */
+    --accent-secondary: #6C63FF; /* purple-500 - secondary accent */
+    --accent-tertiary: #E5E7EB; /* cyan-500 - tertiary accent */
+    --accent-emerald: #E63946; /* emerald-500 - success/positive */
+    --accent-gray: #9CA3AF; /* gray-400 - neutral accent */
     
     /* Background Colors */
     --bg-primary: #101010;
@@ -40,6 +43,9 @@
     --shadow-primary: rgba(156, 163, 175, 0.2);
     --shadow-secondary: rgba(255, 255, 255, 0.1);
     --shadow-accent: rgba(59, 130, 246, 0.3);
+    --shadow-blue: rgba(59, 130, 246, 0.2);
+    --shadow-purple: rgba(139, 92, 246, 0.2);
+    --shadow-cyan: rgba(6, 182, 212, 0.2);
     
     /* Background Blur Colors */
     --blur-blue: rgba(59, 130, 246, 0.05);
@@ -99,7 +105,7 @@
   }
 
   .text-gradient-blue {
-    background: linear-gradient(135deg, var(--text-primary), var(--accent-primary), var(--text-primary));
+    background: linear-gradient(13deg, var(--accent-primary), var(--accent-primary), var(--accent-tertiary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -113,18 +119,29 @@
 
   /* Button Styles */
   .btn-primary {
-    background: linear-gradient(135deg, var(--accent-primary), var(--primary-black));
+    background: transparent;
     color: var(--text-primary);
     border-radius: 0.5rem;
     padding: 1rem 2rem;
     font-weight: 600;
     font-size: 1.125rem;
     transition: all 0.3s ease;
+    border: 2px solid var(--accent-primary);
+    position: relative;
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent-secondary), var(--primary-black));
-    box-shadow: 0 0 20px var(--shadow-primary);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary), var(--accent-tertiary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-color: var(--accent-tertiary);
+    box-shadow: 0 0 5px var(--accent-primary);
+    cursor: pointer;
+  }
+
+  .btn-primary:hover svg {
+    color: var(--accent-primary);
   }
 
   .btn-secondary {
@@ -139,7 +156,9 @@
 
   .btn-secondary:hover {
     background: var(--bg-glass-hover);
-    border-color: var(--border-secondary);
+    border-color: var(--accent-primary);
+    color: var(--text-accent);
+    box-shadow: 0 0 15px var(--shadow-blue);
   }
 
   /* Card Styles */
@@ -166,6 +185,7 @@
   .text-secondary { color: var(--text-secondary); }
   .text-tertiary { color: var(--text-tertiary); }
   .text-muted { color: var(--text-muted); }
+  .text-accent { color: var(--text-accent); }
 
   /* Background Styles */
   .bg-primary { background-color: var(--bg-primary); }
@@ -181,9 +201,244 @@
   .shadow-primary { box-shadow: 0 0 20px var(--shadow-primary); }
   .shadow-secondary { box-shadow: 0 0 20px var(--shadow-secondary); }
   .shadow-accent { box-shadow: 0 0 20px var(--shadow-accent); }
+  .shadow-blue { box-shadow: 0 0 20px var(--shadow-blue); }
+  .shadow-purple { box-shadow: 0 0 20px var(--shadow-purple); }
+  .shadow-cyan { box-shadow: 0 0 20px var(--shadow-cyan); }
+
+  /* Package Card Styles */
+  .package-card {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-primary);
+  }
+
+  .package-card-popular {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-secondary);
+    box-shadow: 0 0 30px var(--shadow-purple);
+  }
+
+  .package-icon {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary)20);
+    border: 1px solid var(--accent-primary)40;
+  }
+
+  .package-icon-secondary {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary)20);
+    border: 1px solid var(--accent-secondary)40;
+  }
+
+  .package-icon-tertiary {
+    background: linear-gradient(135deg, var(--accent-tertiary), var(--accent-tertiary)20);
+    border: 1px solid var(--accent-tertiary)40;
+  }
+
+  .package-icon-emerald {
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-emerald)20);
+    border: 1px solid var(--accent-emerald)40;
+  }
+
+  .package-badge {
+    background: var(--bg-primary);
+    border: 2px solid var(--accent-secondary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 0 20px var(--shadow-purple);
+  }
+
+  /* Service Card Styles */
+  .service-icon-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary)20);
+    border: 1px solid var(--accent-primary)40;
+  }
+
+  .service-icon-secondary {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary)20);
+    border: 1px solid var(--accent-secondary)40;
+  }
+
+  .service-icon-tertiary {
+    background: linear-gradient(135deg, var(--accent-tertiary), var(--accent-tertiary)20);
+    border: 1px solid var(--accent-tertiary)40;
+  }
+
+  .service-icon-emerald {
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-emerald)20);
+    border: 1px solid var(--accent-emerald)40;
+  }
+
+  .service-icon-gray {
+    background: linear-gradient(135deg, var(--accent-gray), var(--accent-gray)20);
+    border: 1px solid var(--accent-gray)40;
+  }
+
+  .service-hover-primary {
+    background: linear-gradient(135deg, var(--accent-primary)20, var(--accent-primary)05);
+    border: 1px solid var(--accent-primary)20;
+  }
+
+  .service-hover-secondary {
+    background: linear-gradient(135deg, var(--accent-secondary)20, var(--accent-secondary)05);
+    border: 1px solid var(--accent-secondary)20;
+  }
+
+  .service-hover-tertiary {
+    background: linear-gradient(135deg, var(--accent-tertiary)20, var(--accent-tertiary)05);
+    border: 1px solid var(--accent-tertiary)20;
+  }
+
+  .service-hover-emerald {
+    background: linear-gradient(135deg, var(--accent-emerald)20, var(--accent-emerald)05);
+    border: 1px solid var(--accent-emerald)20;
+  }
+
+  .service-hover-gray {
+    background: linear-gradient(135deg, var(--accent-gray)20, var(--accent-gray)05);
+    border: 1px solid var(--accent-gray)20;
+  }
+
+  .value-icon-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary)20);
+    border: 1px solid var(--accent-primary)40;
+  }
+
+  .value-icon-secondary {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary)20);
+    border: 1px solid var(--accent-secondary)40;
+  }
+
+  .value-icon-tertiary {
+    background: linear-gradient(135deg, var(--accent-tertiary), var(--accent-tertiary)20);
+    border: 1px solid var(--accent-tertiary)40;
+  }
+
+  .value-icon-emerald {
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-emerald)20);
+    border: 1px solid var(--accent-emerald)40;
+  }
+
+  .value-hover-primary {
+    background: linear-gradient(135deg, var(--accent-primary)10, var(--accent-primary)05);
+    border: 1px solid var(--accent-primary)20;
+  }
+
+  .value-hover-secondary {
+    background: linear-gradient(135deg, var(--accent-secondary)10, var(--accent-secondary)05);
+    border: 1px solid var(--accent-secondary)20;
+  }
+
+  .value-hover-tertiary {
+    background: linear-gradient(135deg, var(--accent-tertiary)10, var(--accent-tertiary)05);
+    border: 1px solid var(--accent-tertiary)20;
+  }
+
+  .value-hover-emerald {
+    background: linear-gradient(135deg, var(--accent-emerald)10, var(--accent-emerald)05);
+    border: 1px solid var(--accent-emerald)20;
+  }
+
+  /* Portfolio Styles */
+  .portfolio-filter-active {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary)20);
+    border: 1px solid var(--accent-primary)40;
+  }
+
+  .portfolio-filter-secondary {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary)20);
+    border: 1px solid var(--accent-secondary)40;
+  }
+
+  .portfolio-filter-tertiary {
+    background: linear-gradient(135deg, var(--accent-tertiary), var(--accent-tertiary)20);
+    border: 1px solid var(--accent-tertiary)40;
+  }
+
+  .portfolio-filter-emerald {
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-emerald)20);
+    border: 1px solid var(--accent-emerald)40;
+  }
+
+  .portfolio-filter-gray {
+    background: linear-gradient(135deg, var(--accent-gray), var(--accent-gray)20);
+    border: 1px solid var(--accent-gray)40;
+  }
+
+  .portfolio-project-bg {
+    background: linear-gradient(135deg, var(--blur-blue), var(--blur-purple));
+  }
+
+  .portfolio-tag {
+    background: var(--bg-glass);
+  }
+
+  .portfolio-link {
+    color: var(--accent-primary);
+  }
+
+  /* Contact Form Styles */
+  .contact-form-input {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-primary);
+  }
+
+  .contact-info-icon {
+    background: linear-gradient(13deg, var(--accent-primary), var(--accent-primary), var(--accent-tertiary));
+  }
+
+  /* Navigation Styles */
+  .nav-underline {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  }
+
+  /* Status Colors */
+  .text-success { color: var(--success); }
+  .text-error { color: var(--error); }
+  .text-info { color: var(--info); }
+  .text-warning { color: var(--warning); }
+
+  /* Background Gradients */
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, var(--primary-black), var(--secondary-gray));
+  }
+
+  .bg-gradient-solutions {
+    background: linear-gradient(to bottom, var(--tertiary-gray), var(--primary-black));
+  }
+
+  .bg-gradient-button-hover {
+    background: linear-gradient(135deg, var(--accent-secondary), #000000);
+  }
+
 
   .glow-effect {
     @apply shadow-2xl shadow-blue-500/20;
+  }
+
+  /* Background Blur Elements */
+  .blur-blue {
+    background-color: var(--blur-blue);
+  }
+
+  .blur-purple {
+    background-color: var(--blur-purple);
+  }
+
+  .blur-gray {
+    background-color: var(--blur-gray);
+  }
+
+  /* Animation Styles */
+  .will-change-auto {
+    will-change: auto;
+  }
+
+  .letter-spacing-tight {
+    letter-spacing: -0.05em;
+  }
+
+  .font-weight-800 {
+    font-weight: 800;
+  }
+
+  .vertical-align-text-top {
+    vertical-align: text-top;
   }
 
   .animate-float {

@@ -28,6 +28,28 @@ export function ServicesSection() {
     triggerOnce: true,
   })
 
+  const getIconClass = (color: string) => {
+    switch (color) {
+      case 'var(--accent-primary)': return 'service-icon-primary'
+      case 'var(--accent-secondary)': return 'service-icon-secondary'
+      case 'var(--accent-tertiary)': return 'service-icon-tertiary'
+      case 'var(--accent-emerald)': return 'service-icon-emerald'
+      case 'var(--accent-gray)': return 'service-icon-gray'
+      default: return 'service-icon-primary'
+    }
+  }
+
+  const getHoverClass = (color: string) => {
+    switch (color) {
+      case 'var(--accent-primary)': return 'service-hover-primary'
+      case 'var(--accent-secondary)': return 'service-hover-secondary'
+      case 'var(--accent-tertiary)': return 'service-hover-tertiary'
+      case 'var(--accent-emerald)': return 'service-hover-emerald'
+      case 'var(--accent-gray)': return 'service-hover-gray'
+      default: return 'service-hover-primary'
+    }
+  }
+
   const sectionRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
 
@@ -65,42 +87,42 @@ export function ServicesSection() {
       title: 'Web Development',
       description: 'Modern websites and applications tailored to your business goals.',
       features: ['Custom business websites', 'Landing pages and portfolios', 'Web apps with secure user access', 'API integrations'],
-      color: 'from-gray-400 to-gray-600',
+      color: 'var(--accent-primary)',
     },
     {
       icon: Database,
       title: 'Backend Development',
       description: 'Powerful and scalable server-side solutions.',
       features: ['Database design & management', 'Secure authentication & roles', 'Automation & integrations', 'Scalable architecture'],
-      color: 'from-gray-500 to-gray-700',
+      color: 'var(--accent-secondary)',
     },
     {
       icon: Globe,
       title: 'E-commerce Solutions',
       description: 'Online stores designed to grow with your business.',
       features: ['Product & inventory management', 'Secure payment gateways', 'Custom checkout flows', 'Analytics & reporting'],
-      color: 'from-gray-600 to-gray-800',
+      color: 'var(--accent-tertiary)',
     },
     {
       icon: Zap,
       title: 'Performance Optimization',
       description: 'Faster, more reliable websites that drive results.',
       features: ['Speed optimization', 'SEO & Core Web Vitals', 'Monitoring & maintenance', 'Cloud hosting setup'],
-      color: 'from-gray-400 to-gray-600',
+      color: 'var(--accent-primary)',
     },
     {
       icon: Palette,
       title: 'Design & Wireframing Support',
       description: 'Streamlined, modern design powered by AI tools and UI kits.',
       features: ['Wireframes & mockups (AI-assisted)', 'Responsive layouts', 'Consistent design systems', 'User flow mapping'],
-      color: 'from-gray-500 to-gray-700',
+      color: 'var(--accent-secondary)',
     },
     {
       icon: Headphones,
       title: 'Consulting & Support',
       description: 'Expert guidance and quick solutions for your digital needs.',
       features: ['Technical consulting & audits', 'Troubleshooting & bug fixes', 'Optimizing existing websites', 'Best-practice recommendations'],
-      color: 'from-gray-600 to-gray-800',
+      color: 'var(--accent-tertiary)',
     },
   ]
 
@@ -112,8 +134,8 @@ export function ServicesSection() {
     >
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-blue)' }} />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-gray)' }} />
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl blur-blue" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl blur-gray" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -146,7 +168,7 @@ export function ServicesSection() {
             >
               <div className="card-primary rounded-3xl p-8 h-full hover:shadow-primary transition-all duration-500 group-hover:border-hover">
                 {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${getIconClass(service.color)}`}>
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -163,14 +185,14 @@ export function ServicesSection() {
                 <div className="space-y-2 mb-6">
                   {service.features.map((feature) => (
                     <div key={feature} className="flex items-center gap-2 text-sm text-secondary">
-                      <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--success)' }} />
+                      <CheckCircle className="w-4 h-4 flex-shrink-0 text-success" />
                       <span>{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Hover gradient overlay */}
-                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${getHoverClass(service.color)}`} />
               </div>
             </motion.div>
           ))}

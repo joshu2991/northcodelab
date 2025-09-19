@@ -32,7 +32,7 @@ export function Button({
   const baseClasses = 'font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2'
   
   const variantClasses = {
-    primary: 'text-primary',
+    primary: 'btn-primary',
     secondary: 'btn-secondary'
   }
   
@@ -43,14 +43,10 @@ export function Button({
   }
   
   const defaultWhileHover = variant === 'primary' 
-    ? { scale: 1.05, boxShadow: '0 20px 40px var(--shadow-primary)' }
+    ? { scale: 1.05 }
     : { scale: 1.05 }
     
   const defaultWhileTap = { scale: 0.95 }
-  
-  const primaryStyle = variant === 'primary' 
-    ? { background: 'linear-gradient(135deg, var(--accent-primary), var(--primary-black))' }
-    : {}
 
   return (
     <motion.button
@@ -60,7 +56,7 @@ export function Button({
       whileHover={whileHover || defaultWhileHover}
       whileTap={whileTap || defaultWhileTap}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-      style={{ ...primaryStyle, ...style }}
+      style={style}
       {...props}
     >
       {children}

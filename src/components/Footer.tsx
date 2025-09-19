@@ -32,7 +32,7 @@ export function Footer() {
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 >
-                  <Heart className="w-4 h-4 fill-current" style={{ color: 'var(--error)' }} />
+                  <Heart className="w-4 h-4 fill-current text-error" />
                 </motion.div>
                 <span>by North Code Lab</span>
               </div>

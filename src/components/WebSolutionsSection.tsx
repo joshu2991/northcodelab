@@ -10,9 +10,9 @@ const packages = [
     subtitle: 'Landing Page / Microsite',
     description: 'For entrepreneurs or small businesses that just need a quick online presence.',
     price: 'From $600 USD',
-    delivery: '1–2 days',
+    delivery: '2-4 days',
     icon: Globe,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'var(--accent-primary)',
     features: [
       '1 optimized Landing Page (up to 8 sections)',
       'Modern and responsive design',
@@ -27,15 +27,15 @@ const packages = [
     subtitle: 'Corporate Website',
     description: 'For companies looking for a professional website with multiple pages.',
     price: 'From $1,200 USD',
-    delivery: '3–5 days',
+    delivery: '3–7 days',
     icon: Users,
-    color: 'from-purple-500 to-pink-500',
+    color: 'var(--accent-secondary)',
     features: [
       'Up to 5 custom pages (Home, About, Services, Blog, Contact)',
       'Modern, mobile-optimized design',
       'Basic SEO + Sitemap',
       'Custom integrations as needed (forms, newsletter, maps, etc.)',
-      'Open CMS so the client can manage their own content'
+      'Open CMS for content management'
     ],
     popular: true
   },
@@ -46,13 +46,13 @@ const packages = [
     price: 'From $3,500 USD',
     delivery: '1–2 weeks',
     icon: Code,
-    color: 'from-orange-500 to-red-500',
+    color: 'var(--accent-tertiary)',
     features: [
       'Full website with user dashboard',
       'Login/registration system with basic roles',
       'Custom integrations as needed (payments, bookings, products, courses, etc.)',
       'Basic API for future growth',
-      'Open CMS so the client can manage their own content'
+      'Open CMS for content management'
     ],
     popular: false
   },
@@ -63,7 +63,7 @@ const packages = [
     price: 'From $7,000 USD',
     delivery: '3–4 weeks',
     icon: Shield,
-    color: 'from-emerald-500 to-teal-500',
+    color: 'var(--accent-emerald)',
     features: [
       'Custom web platform with multiple roles and dashboards',
       'Custom integrations as needed',
@@ -76,12 +76,22 @@ const packages = [
 ]
 
 export function WebSolutionsSection() {
+  const getIconClass = (color: string) => {
+    switch (color) {
+      case 'var(--accent-primary)': return 'package-icon'
+      case 'var(--accent-secondary)': return 'package-icon-secondary'
+      case 'var(--accent-tertiary)': return 'package-icon-tertiary'
+      case 'var(--accent-emerald)': return 'package-icon-emerald'
+      default: return 'package-icon'
+    }
+  }
+
   return (
-    <section id="solutions" className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(to bottom, var(--tertiary-gray), var(--primary-black))' }}>
+    <section id="solutions" className="relative py-20 overflow-hidden bg-gradient-solutions">
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-blue)' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-purple)' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl blur-blue" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl blur-purple" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,33 +127,37 @@ export function WebSolutionsSection() {
               >
                 {/* Popular Badge */}
                 {pkg.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="text-primary px-4 py-1 rounded-lg text-xs font-semibold" style={{ background: 'linear-gradient(135deg, var(--accent-primary), var(--primary-black))' }}>
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-30">
+                    <div className="text-white px-4 py-1 rounded-lg text-xs font-semibold shadow-lg package-badge">
                       Most Popular
                     </div>
                   </div>
                 )}
 
-                <div                 className={`relative h-full backdrop-blur-sm border rounded-xl p-6 transition-all duration-300 hover:bg-glass-hover hover:border-hover ${
-                  pkg.popular ? 'border-secondary shadow-lg' : 'border-primary'
-                }`}
-                style={{ 
-                  backgroundColor: pkg.popular ? 'var(--bg-secondary)' : 'var(--bg-glass)',
-                  boxShadow: pkg.popular ? '0 0 20px var(--shadow-secondary)' : 'none'
-                }}>
+                <div className={`relative h-full backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:bg-glass-hover hover:border-hover ${
+                  pkg.popular ? 'package-card-popular' : 'package-card'
+                }`}>
                   {/* Header */}
                   <div className="text-center mb-6">
-                    <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${pkg.color} mb-4`}>
+                    <div className={`inline-flex p-3 rounded-lg mb-4 ${getIconClass(pkg.color)}`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-primary mb-1">{pkg.name}</h3>
+                    <h3 
+                      className={`text-xl font-bold mb-1 ${pkg.popular ? 'text-gradient-blue' : 'text-primary'}`}
+                    >
+                      {pkg.name}
+                    </h3>
                     <p className="text-sm text-tertiary mb-3">{pkg.subtitle}</p>
                     <p className="text-xs text-muted leading-relaxed">{pkg.description}</p>
                   </div>
 
                   {/* Price */}
                   <div className="text-center mb-6">
-                    <div className="text-3xl font-bold text-primary mb-1">{pkg.price}</div>
+                    <div 
+                      className={`text-3xl font-bold mb-1 ${pkg.popular ? 'text-gradient-blue' : 'text-primary'}`}
+                    >
+                      {pkg.price}
+                    </div>
                     <div className="flex items-center justify-center gap-1 text-sm text-tertiary">
                       <Clock className="w-4 h-4" />
                       <span>Delivery in {pkg.delivery}</span>
@@ -155,7 +169,7 @@ export function WebSolutionsSection() {
                     <ul className="space-y-3">
                       {pkg.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start gap-2">
-                          <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--success)' }} />
+                          <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-success" />
                           <span className="text-sm text-secondary">{feature}</span>
                         </li>
                       ))}

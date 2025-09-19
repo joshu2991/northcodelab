@@ -80,8 +80,7 @@ export function Navigation() {
                 >
                   {item.name}
                   <motion.div
-                    className="absolute bottom-0 left-0 w-0 h-0.5"
-                    style={{ background: 'linear-gradient(90deg, var(--text-primary), transparent)' }}
+                    className="absolute bottom-0 left-0 w-0 h-0.5 nav-underline"
                     whileHover={{ width: '100%' }}
                     transition={{ duration: 0.3 }}
                   />

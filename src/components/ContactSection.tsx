@@ -91,25 +91,17 @@ export function ContactSection() {
       href: 'mailto:hello@northcodelab.com',
     },
     {
-      icon: Phone,
-      title: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
-    },
-    {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
-      href: '#',
+      value: 'Vancouver, Canada',
+      href: 'https://maps.app.goo.gl/S6kqax6VNQprUTbR6',
     },
   ]
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-  ]
+    { icon: Instagram, href: '#', label: 'Instagram' }  ]
 
   return (
     <section
@@ -119,8 +111,8 @@ export function ContactSection() {
     >
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-blue)' }} />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: 'var(--blur-purple)' }} />
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl blur-blue" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl blur-purple" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -157,7 +149,7 @@ export function ContactSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-12"
               >
-                <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--success)' }} />
+                <CheckCircle className="w-16 h-16 mx-auto mb-4 text-success" />
                 <h4 className="text-xl font-semibold text-primary mb-2">Message Sent!</h4>
                 <p className="text-tertiary">We'll get back to you within 24 hours.</p>
               </motion.div>
@@ -175,12 +167,7 @@ export function ContactSection() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300"
-                      style={{ 
-                        backgroundColor: 'var(--bg-glass)', 
-                        border: '1px solid var(--border-primary)',
-                        '--tw-ring-color': 'var(--accent-primary)'
-                      }}
+                      className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 contact-form-input"
                       placeholder="Your name"
                     />
                   </div>
@@ -196,12 +183,7 @@ export function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300"
-                      style={{ 
-                        backgroundColor: 'var(--bg-glass)', 
-                        border: '1px solid var(--border-primary)',
-                        '--tw-ring-color': 'var(--accent-primary)'
-                      }}
+                      className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 contact-form-input"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -217,7 +199,7 @@ export function ContactSection() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 contact-form-input"
                     placeholder="Your company"
                   />
                 </div>
@@ -233,12 +215,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none"
-                    style={{ 
-                      backgroundColor: 'var(--bg-glass)', 
-                      border: '1px solid var(--border-primary)',
-                      '--tw-ring-color': 'var(--accent-primary)'
-                    }}
+                    className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none contact-form-input"
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -290,7 +267,7 @@ export function ContactSection() {
                   whileHover={{ x: 10 }}
                   className="flex items-center gap-4 p-4 glass-effect rounded-xl hover:border-white/20 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary))' }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 contact-info-icon">
                     <info.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
