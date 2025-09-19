@@ -8,8 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { 
   Mail, 
   MapPin, 
-  Send, 
-  CheckCircle,
+  Send,
   Linkedin,
   Twitter,
   Instagram
@@ -31,11 +30,11 @@ export function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
+    subject: '',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (inView) {
@@ -62,18 +61,29 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', company: '', message: '' })
-    }, 3000)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        // Redirect to thank you page
+        window.location.href = '/thank-you'
+      } else {
+        const data = await response.json()
+        setError(data.error || 'Failed to send message')
+      }
+    } catch (error) {
+      setError('Network error. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -139,21 +149,48 @@ export function ContactSection() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="glass-effect rounded-3xl p-8"
+            className="glass-effect rounded-3xl p-8 relative"
           >
             <h3 className="text-2xl font-bold text-primary mb-6">Send us a message</h3>
             
-            {isSubmitted ? (
+            {error && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-12"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm"
               >
-                <CheckCircle className="w-16 h-16 mx-auto mb-4 text-success" />
-                <h4 className="text-xl font-semibold text-primary mb-2">Message Sent!</h4>
-                <p className="text-tertiary">We&apos;ll get back to you within 24 hours.</p>
+                {error}
               </motion.div>
-            ) : (
+            )}
+            
+            {/* Crystal Loader Overlay */}
+            {isSubmitting && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-3xl"
+              >
+                <div className="text-center">
+                  <div className="relative">
+                    {/* Crystal Loader */}
+                    <div className="w-16 h-16 mx-auto mb-4 relative">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></div>
+                      <div className="absolute inset-2 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 animate-pulse delay-75"></div>
+                      <div className="absolute inset-4 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 animate-pulse delay-150"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl font-semibold text-white mb-2">Sending Message...</h3>
+                    <p className="text-gray-300 text-sm">Please wait while we deliver your message</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+            
+            {!isSubmitting && (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -190,17 +227,18 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-secondary mb-2">
-                    Company
+                  <label htmlFor="subject" className="block text-sm font-medium text-secondary mb-2">
+                    Subject *
                   </label>
                   <input
                     type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 contact-form-input"
-                    placeholder="Your company"
+                    placeholder="Project inquiry, consultation, etc."
                   />
                 </div>
 

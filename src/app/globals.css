@@ -159,6 +159,7 @@
     border-color: var(--accent-primary);
     color: var(--text-accent);
     box-shadow: 0 0 15px var(--shadow-blue);
+    cursor: pointer;
   }
 
   /* Card Styles */
