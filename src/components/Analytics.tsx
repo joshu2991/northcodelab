@@ -8,8 +8,8 @@ export function Analytics() {
     // Google Analytics 4 setup
     if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
       // Initialize Google Analytics
-      window.gtag = window.gtag || function() {
-        (window.gtag.q = window.gtag.q || []).push(arguments)
+      window.gtag = window.gtag || function(...args: unknown[]) {
+        (window.gtag.q = window.gtag.q || []).push(args)
       }
       
       window.gtag('js', new Date())
@@ -61,10 +61,12 @@ export function SEOMonitoring() {
             console.log('LCP:', entry.startTime)
           }
           if (entry.entryType === 'first-input') {
-            console.log('FID:', entry.processingStart - entry.startTime)
+            const firstInputEntry = entry as PerformanceEventTiming
+            console.log('FID:', firstInputEntry.processingStart - firstInputEntry.startTime)
           }
           if (entry.entryType === 'layout-shift') {
-            console.log('CLS:', entry.value)
+            const layoutShiftEntry = entry as PerformanceEntry & { value: number }
+            console.log('CLS:', layoutShiftEntry.value)
           }
         }
       })
@@ -88,6 +90,9 @@ export function SEOMonitoring() {
 // Declare gtag function for TypeScript
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
+    gtag: {
+      (...args: unknown[]): void
+      q: unknown[]
+    }
   }
 }

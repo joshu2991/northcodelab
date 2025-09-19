@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
   
   // Performance optimizations
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   
@@ -84,8 +83,7 @@ const nextConfig: NextConfig = {
   // Output configuration
   output: 'standalone',
   
-  // Enable SWC minification
-  swcMinify: true,
+  // SWC minification is enabled by default in Next.js 15
   
   // Power by header
   poweredByHeader: false,

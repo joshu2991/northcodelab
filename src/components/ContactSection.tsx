@@ -79,7 +79,7 @@ export function ContactSection() {
         const data = await response.json()
         setError(data.error || 'Failed to send message')
       }
-    } catch (error) {
+    } catch {
       setError('Network error. Please try again.')
     } finally {
       setIsSubmitting(false)
