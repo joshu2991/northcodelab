@@ -198,7 +198,10 @@ export function WebSolutionsSection() {
               Let's discuss your specific requirements.
             </p>
             <div className="flex justify-center">
-              <Button size="lg">
+              <Button 
+                size="lg"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <span className="flex items-center gap-2">
                   Discuss Your Project
                 </span>

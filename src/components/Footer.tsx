@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Heart, ArrowUp } from 'lucide-react'
+import Image from 'next/image'
 
 export function Footer() {
   const scrollToTop = () => {
@@ -19,9 +20,15 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-bold text-gradient-blue font-space-grotesk mb-4">
-                North Code Lab
-              </h3>
+              <div className="mb-4">
+                <Image
+                  src="/logo/logo_slogan_white.png"
+                  alt="North Code Lab"
+                  width={600}
+                  height={120}
+                  className="h-24 w-auto"
+                />
+              </div>
               <p className="text-tertiary leading-relaxed mb-6 max-w-md">
                 Building the future of digital experiences through innovation, 
                 creativity, and cutting-edge technology.
@@ -48,13 +55,19 @@ export function Footer() {
             >
               <h4 className="text-lg font-semibold text-primary mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                {['About', 'Services', 'Portfolio', 'Contact'].map((link) => (
-                  <li key={link}>
+                {[
+                  { name: 'About', href: '#about' },
+                  { name: 'Services', href: '#services' },
+                  { name: 'Solutions', href: '#solutions' },
+                  { name: 'Portfolio', href: '#portfolio' },
+                  { name: 'Contact', href: '#contact' }
+                ].map((link) => (
+                  <li key={link.name}>
                     <a
-                      href={`#${link.toLowerCase()}`}
+                      href={link.href}
                       className="text-tertiary hover:text-primary transition-colors duration-200"
                     >
-                      {link}
+                      {link.name}
                     </a>
                   </li>
                 ))}
@@ -71,11 +84,14 @@ export function Footer() {
             >
               <h4 className="text-lg font-semibold text-primary mb-4">Services</h4>
               <ul className="space-y-2">
-                {['Web Development', 'Mobile Apps', 'E-commerce', 'UI/UX Design'].map((service) => (
+                {['Web Development', 'Backend Development', 'E-commerce', 'Performance Optimization', 'Design & Wireframing', 'Consulting'].map((service) => (
                   <li key={service}>
-                    <span className="text-tertiary hover:text-primary transition-colors duration-200 cursor-pointer">
+                    <a
+                      href="#contact"
+                      className="text-tertiary hover:text-primary transition-colors duration-200 cursor-pointer"
+                    >
                       {service}
-                    </span>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -91,7 +107,7 @@ export function Footer() {
           className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <div className="text-tertiary text-sm">
-            © 2024 North Code Lab. All rights reserved.
+            © 2025 North Code Lab. All rights reserved.
           </div>
           
           <div className="flex items-center gap-6">

@@ -76,6 +76,15 @@ export function Navigation() {
                   href={item.href}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setTimeout(() => {
+                      const elementId = item.href.replace('#', '')
+                      const element = document.getElementById(elementId)
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }, 100)
+                  }}
                   className="text-secondary hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
                 >
                   {item.name}
@@ -100,7 +109,6 @@ export function Navigation() {
             </motion.button>
           </div>
         </div>
-      </div>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
@@ -117,7 +125,16 @@ export function Navigation() {
                     key={item.name}
                     href={item.href}
                     whileHover={{ x: 10 }}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false)
+                      setTimeout(() => {
+                        const elementId = item.href.replace('#', '')
+                        const element = document.getElementById(elementId)
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' })
+                        }
+                      }, 100)
+                    }}
                     className="text-secondary hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200"
                   >
                     {item.name}
@@ -127,6 +144,7 @@ export function Navigation() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
       </motion.nav>
     </div>
   )

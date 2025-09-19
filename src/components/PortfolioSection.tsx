@@ -262,6 +262,7 @@ export function PortfolioSection() {
                     <motion.button
                       whileHover={{ x: 5 }}
                       className="flex items-center gap-2 font-semibold transition-colors portfolio-link"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       View Project
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -292,7 +293,10 @@ export function PortfolioSection() {
             </p>
 
             <div className="flex justify-center">
-              <Button size="lg">
+              <Button 
+                size="lg"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Start Your Project
               </Button>
             </div>

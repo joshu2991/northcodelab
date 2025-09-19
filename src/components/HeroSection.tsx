@@ -121,6 +121,7 @@ export function HeroSection() {
             <Button
               size="lg"
               className="group"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="flex items-center gap-2">
                 Start Your Project
