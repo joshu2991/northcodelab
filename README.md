@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# North Code Lab - Landing Page
 
-## Getting Started
+A modern, immersive landing page for North Code Lab built with Next.js, React, Tailwind CSS, GSAP, and Framer Motion.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern Design**: Clean, minimalistic design with immersive animations
+- **Responsive**: Fully responsive across all devices
+- **Smooth Animations**: GSAP and Framer Motion for fluid animations
+- **3D Elements**: Three.js integration for 3D visual elements
+- **Interactive UI**: Hover effects, scroll animations, and micro-interactions
+- **Performance Optimized**: Smooth scrolling with Lenis and optimized animations
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: GSAP, Framer Motion
+- **3D Graphics**: Three.js, React Three Fiber
+- **Smooth Scrolling**: Lenis
+- **Icons**: Lucide React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Installation
 
-## Learn More
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Design Features
 
-## Deploy on Vercel
+### Hero Section
+- Animated 3D sphere with distortion effects
+- Gradient text animations
+- Parallax scrolling effects
+- Interactive call-to-action buttons
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### About Section
+- Value proposition cards with hover effects
+- Smooth scroll-triggered animations
+- Glass morphism design elements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Services Section
+- Interactive service cards
+- Feature lists with checkmarks
+- Gradient hover effects
+- 3D transform animations
+
+### Portfolio Section
+- Filterable project grid
+- Smooth layout transitions
+- Project overlay effects
+- Category-based filtering
+
+### Contact Section
+- Animated contact form
+- Real-time form validation
+- Social media links
+- Success state animations
+
+## 🎯 Key Animations
+
+- **GSAP ScrollTrigger**: Scroll-based animations
+- **Framer Motion**: Component transitions and hover effects
+- **Three.js**: 3D sphere with material distortion
+- **Lenis**: Smooth scrolling experience
+- **CSS Animations**: Custom keyframe animations
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Touch-friendly interactions
+- Optimized for all screen sizes
+
+## 🚀 Performance
+
+- Optimized animations with proper cleanup
+- Lazy loading for 3D components
+- Efficient scroll listeners
+- Minimal bundle size
+
+## 🎨 Customization
+
+The design system is built with Tailwind CSS and can be easily customized:
+
+- Colors: Update gradient colors in the CSS variables
+- Fonts: Modify font families in the layout component
+- Animations: Adjust timing and easing in component files
+- Layout: Modify grid systems and spacing
+
+## 📄 License
+
+This project is created for North Code Lab. All rights reserved.
+
+---
+
+**North Code Lab** - Building the future of digital experiences.
