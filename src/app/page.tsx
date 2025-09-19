@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/Navigation'
 import { HeroSection } from '@/components/HeroSection'
 import { AboutSection } from '@/components/AboutSection'
+import { LogoCarousel } from '@/components/LogoCarousel'
 import { ServicesSection } from '@/components/ServicesSection'
 import { WebSolutionsSection } from '@/components/WebSolutionsSection'
 import { PortfolioSection } from '@/components/PortfolioSection'
@@ -13,6 +14,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <AboutSection />
+      <LogoCarousel />
       <ServicesSection />
       <WebSolutionsSection />
       <PortfolioSection />

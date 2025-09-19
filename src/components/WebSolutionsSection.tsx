@@ -104,7 +104,7 @@ export function WebSolutionsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-6">
-            <span className="text-gradient-blue">Web Solutions</span>
+            <span className="text-gradient">Web Solutions</span>
           </h2>
           <p className="text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed">
             Professional web development packages tailored to your business needs

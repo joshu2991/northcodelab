@@ -87,7 +87,7 @@ export function Footer() {
                 {['Web Development', 'Backend Development', 'E-commerce', 'Performance Optimization', 'Design & Wireframing', 'Consulting'].map((service) => (
                   <li key={service}>
                     <a
-                      href="#contact"
+                      href="#services"
                       className="text-tertiary hover:text-primary transition-colors duration-200 cursor-pointer"
                     >
                       {service}
