@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Heart, ArrowUp } from 'lucide-react'
-import Image from 'next/image'
+import { OptimizedImage } from './OptimizedImage'
 
 export function Footer() {
   const scrollToTop = () => {
@@ -21,12 +21,14 @@ export function Footer() {
               transition={{ duration: 0.8 }}
             >
               <div className="mb-4">
-                <Image
+                <OptimizedImage
                   src="/logo/logo_slogan_white.png"
-                  alt="North Code Lab"
+                  alt="North Code Lab - Professional Web Development Services"
                   width={600}
                   height={120}
                   className="h-24 w-auto"
+                  priority
+                  quality={95}
                 />
               </div>
               <p className="text-tertiary leading-relaxed mb-6 max-w-md">

@@ -84,7 +84,7 @@ export function HeroSection() {
             className="text-5xl md:text-7xl lg:text-8xl font-space-grotesk leading-tight letter-spacing-tight font-weight-800"
             style={{ minHeight: '1.2em' }} // Prevent layout shift
           >
-            <span className="text-gradient animate-gradient">
+            <span className="text-gradient animate-gradient p-4">
               {displayedText}
               {isTyping && (
                 <motion.span
@@ -102,8 +102,8 @@ export function HeroSection() {
             className="text-xl md:text-2xl lg:text-3xl text-secondary max-w-4xl mx-auto leading-relaxed"
             style={{ opacity: 0 }}
           >
-            Building the future of{' '}
-            <span className="text-gradient-blue font-semibold">digital experiences</span>
+            Professional <span className="text-gradient-blue font-semibold">web development</span> services in{' '}
+            <span className="text-gradient-blue font-semibold">Vancouver, Canada</span>
           </p>
 
           {/* Description */}
@@ -112,8 +112,9 @@ export function HeroSection() {
             className="text-lg md:text-xl text-tertiary max-w-3xl mx-auto leading-relaxed"
             style={{ opacity: 0 }}
           >
-            A creative development studio where innovation meets execution. 
-            We don&apos;t just write code — we craft digital experiences that inspire, scale, and perform.
+            Expert <strong>MVP development</strong>, <strong>AI chatbot integration</strong>, <strong>Laravel development</strong>, 
+            <strong>React development</strong>, and <strong>Next.js development</strong> services. 
+            We craft custom websites, e-commerce solutions, telemedicine platforms, and digital experiences that inspire, scale, and perform.
           </p>
 
           {/* CTA Buttons */}

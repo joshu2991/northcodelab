@@ -1,0 +1,36 @@
+{
+  "name": "North Code Lab - Professional Web Development Services",
+  "short_name": "North Code Lab",
+  "description": "Professional web development, e-commerce solutions, and digital experiences. Building the future of digital innovation in Vancouver, Canada.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#00AEEF",
+  "background_color": "#101010",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "productivity", "developer"],
+  "screenshots": [
+    {
+      "src": "/portfolio/baking_h.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "North Code Lab - Professional Web Development"
+    }
+  ]
+}

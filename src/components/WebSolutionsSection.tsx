@@ -60,7 +60,7 @@ const packages = [
     name: 'Enterprise Package',
     subtitle: 'Advanced MVP / Scalable Platform',
     description: 'For larger projects that require a robust and growth-ready solution.',
-    price: 'From $7,000 USD',
+    price: 'Contact us',
     delivery: '3–4 weeks',
     icon: Shield,
     color: 'var(--accent-emerald)',

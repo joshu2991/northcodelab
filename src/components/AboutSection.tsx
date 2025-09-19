@@ -139,9 +139,9 @@ export function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-secondary max-w-4xl mx-auto leading-relaxed"
           >
-            At North Code Lab, we don&apos;t just write code — we craft digital experiences 
-            that inspire, scale, and perform. Every project is an experiment. 
-            Every solution, a discovery.
+            At North Code Lab, we specialize in <strong>custom web development</strong> and <strong>digital transformation</strong> 
+            services. Our <strong>Vancouver-based web development company</strong> crafts professional websites, 
+            e-commerce solutions, and web applications that inspire, scale, and perform.
           </motion.p>
         </div>
 
