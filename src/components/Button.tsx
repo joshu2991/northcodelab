@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, TargetAndTransition, VariantLabels } from 'framer-motion'
 import { ReactNode } from 'react'
 
 interface ButtonProps {
@@ -11,8 +11,8 @@ interface ButtonProps {
   onClick?: () => void
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
-  whileHover?: any
-  whileTap?: any
+  whileHover?: TargetAndTransition | VariantLabels
+  whileTap?: TargetAndTransition | VariantLabels
   style?: React.CSSProperties
 }
 

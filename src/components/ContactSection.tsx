@@ -7,11 +7,9 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { 
   Mail, 
-  Phone, 
   MapPin, 
   Send, 
   CheckCircle,
-  Github,
   Linkedin,
   Twitter,
   Instagram
@@ -23,7 +21,7 @@ if (typeof window !== 'undefined') {
 }
 
 export function ContactSection() {
-  const { ref, inView } = useInView({
+  const { inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   })
@@ -42,17 +40,19 @@ export function ContactSection() {
   useEffect(() => {
     if (inView) {
       const ctx = gsap.context(() => {
-        gsap.fromTo(
-          sectionRef.current?.children,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power3.out',
-          }
-        )
+        if (sectionRef.current?.children) {
+          gsap.fromTo(
+            sectionRef.current.children,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.2,
+              ease: 'power3.out',
+            }
+          )
+        }
       }, sectionRef)
 
       return () => ctx.revert()
@@ -124,12 +124,12 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-6">
-            <span className="text-gradient">Let's Build</span>
+            <span className="text-gradient">Let&apos;s Build</span>
             <br />
             <span className="text-gradient-blue">Something Together</span>
           </h2>
           <p className="text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your ideas into digital reality? Let's start the conversation.
+            Ready to transform your ideas into digital reality? Let&apos;s start the conversation.
           </p>
         </motion.div>
 
@@ -151,7 +151,7 @@ export function ContactSection() {
               >
                 <CheckCircle className="w-16 h-16 mx-auto mb-4 text-success" />
                 <h4 className="text-xl font-semibold text-primary mb-2">Message Sent!</h4>
-                <p className="text-tertiary">We'll get back to you within 24 hours.</p>
+                <p className="text-tertiary">We&apos;ll get back to you within 24 hours.</p>
               </motion.div>
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -252,15 +252,15 @@ export function ContactSection() {
             <div>
               <h3 className="text-2xl font-bold text-primary mb-6">Get in touch</h3>
               <p className="text-tertiary leading-relaxed mb-8">
-                We're always excited to hear about new projects and opportunities. 
+                We&apos;re always excited to hear about new projects and opportunities. 
                 Whether you have a specific idea in mind or just want to explore possibilities, 
-                we're here to help bring your vision to life.
+                we&apos;re here to help bring your vision to life.
               </p>
             </div>
 
             {/* Contact details */}
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info) => (
                 <motion.a
                   key={info.title}
                   href={info.href}

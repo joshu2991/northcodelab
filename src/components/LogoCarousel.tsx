@@ -7,27 +7,27 @@ import Image from 'next/image'
 export function LogoCarousel() {
   const [shuffledLogos, setShuffledLogos] = useState<string[]>([])
 
-  // List of all logo files from the icons folder
-  const logoFiles = [
-    'aws.png',
-    'chatbot.png',
-    'chatgpt.png',
-    'figma.png',
-    'github.png',
-    'laravel.png',
-    'mongodb.png',
-    'mysql.png',
-    'nextjs.png',
-    'node.png',
-    'nvidia.png',
-    'php.png',
-    'react.png',
-    'stripe.png',
-    'tailwind.png'
-  ]
-
   // Shuffle logos on component mount and when page refreshes
   useEffect(() => {
+    // List of all logo files from the icons folder
+    const logoFiles = [
+      'aws.png',
+      'chatbot.png',
+      'chatgpt.png',
+      'figma.png',
+      'github.png',
+      'laravel.png',
+      'mongodb.png',
+      'mysql.png',
+      'nextjs.png',
+      'node.png',
+      'nvidia.png',
+      'php.png',
+      'react.png',
+      'stripe.png',
+      'tailwind.png'
+    ]
+    
     const shuffled = [...logoFiles].sort(() => Math.random() - 0.5)
     setShuffledLogos(shuffled)
   }, [])

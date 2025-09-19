@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check, Clock, DollarSign, Users, Zap, Shield, Globe, Code, ArrowRight } from 'lucide-react'
+import { Check, Clock, Users, Shield, Globe, Code } from 'lucide-react'
 import { Button } from './Button'
 
 const packages = [
@@ -194,8 +194,8 @@ export function WebSolutionsSection() {
               Need a Custom Solution?
             </h3>
             <p className="text-secondary mb-6 max-w-2xl mx-auto">
-              We also offer custom development services for unique projects that don't fit our standard packages. 
-              Let's discuss your specific requirements.
+              We also offer custom development services for unique projects that don&apos;t fit our standard packages. 
+              Let&apos;s discuss your specific requirements.
             </p>
             <div className="flex justify-center">
               <Button 

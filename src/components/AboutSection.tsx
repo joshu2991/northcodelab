@@ -6,14 +6,13 @@ import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Lightbulb, Target, Rocket, Users } from 'lucide-react'
-import { Button } from './Button'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
 export function AboutSection() {
-  const { ref, inView } = useInView({
+  const { inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
   })
@@ -140,7 +139,7 @@ export function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-secondary max-w-4xl mx-auto leading-relaxed"
           >
-            At North Code Lab, we don't just write code — we craft digital experiences 
+            At North Code Lab, we don&apos;t just write code — we craft digital experiences 
             that inspire, scale, and perform. Every project is an experiment. 
             Every solution, a discovery.
           </motion.p>
@@ -148,7 +147,7 @@ export function AboutSection() {
 
         {/* Values grid */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {values.map((value, index) => (
+          {values.map((value) => (
             <motion.div
               key={value.title}
               whileHover={{ 

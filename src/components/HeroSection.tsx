@@ -113,7 +113,7 @@ export function HeroSection() {
             style={{ opacity: 0 }}
           >
             A creative development studio where innovation meets execution. 
-            We don't just write code — we craft digital experiences that inspire, scale, and perform.
+            We don&apos;t just write code — we craft digital experiences that inspire, scale, and perform.
           </p>
 
           {/* CTA Buttons */}
@@ -140,7 +140,7 @@ export function HeroSection() {
               { icon: Code, text: 'Innovation' },
               { icon: Zap, text: 'Performance' },
               { icon: Sparkles, text: 'Creativity' },
-            ].map(({ icon: Icon, text }, index) => (
+            ].map(({ icon: Icon, text }) => (
               <div
                 key={text}
                 className="flex flex-col items-center gap-2 text-tertiary group"

@@ -7,12 +7,10 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { 
   Code2, 
-  Smartphone, 
   Globe, 
   Database, 
   Palette, 
   Zap,
-  ArrowRight,
   CheckCircle,
   Headphones
 } from 'lucide-react'
@@ -23,7 +21,7 @@ if (typeof window !== 'undefined') {
 }
 
 export function ServicesSection() {
-  const { ref, inView } = useInView({
+  const { inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   })
@@ -156,7 +154,7 @@ export function ServicesSection() {
 
         {/* Services grid */}
         <div ref={servicesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               whileHover={{ 
@@ -213,7 +211,7 @@ export function ServicesSection() {
             </h3>
             
             <p className="text-xl text-secondary mb-8 leading-relaxed">
-              Let's discuss your project and create something extraordinary together.
+              Let&apos;s discuss your project and create something extraordinary together.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

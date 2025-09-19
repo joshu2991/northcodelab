@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ExternalLink, Github, Eye, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight } from 'lucide-react'
 import { Button } from './Button'
 
 if (typeof window !== 'undefined') {
@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
 }
 
 export function PortfolioSection() {
-  const { ref, inView } = useInView({
+  const { inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   })
@@ -36,22 +36,24 @@ export function PortfolioSection() {
   useEffect(() => {
     if (inView) {
       const ctx = gsap.context(() => {
-        gsap.fromTo(
-          projectsRef.current?.children,
-          { 
-            y: 100, 
-            opacity: 0, 
-            scale: 0.8,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            stagger: 0.1,
-            ease: 'power3.out',
-          }
-        )
+        if (projectsRef.current?.children) {
+          gsap.fromTo(
+            projectsRef.current.children,
+            { 
+              y: 100, 
+              opacity: 0, 
+              scale: 0.8,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1,
+              stagger: 0.1,
+              ease: 'power3.out',
+            }
+          )
+        }
       }, sectionRef)
 
       return () => ctx.revert()
@@ -157,7 +159,7 @@ export function PortfolioSection() {
             <span className="text-gradient">Our Portfolio</span>
           </h2>
           <p className="text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            Discover our latest projects and the innovative solutions we've created
+            Discover our latest projects and the innovative solutions we&apos;ve created
           </p>
         </motion.div>
 
@@ -289,7 +291,7 @@ export function PortfolioSection() {
             </h3>
             
             <p className="text-xl text-secondary mb-8 leading-relaxed">
-              Let's bring your vision to life with our expertise and creativity.
+              Let&apos;s bring your vision to life with our expertise and creativity.
             </p>
 
             <div className="flex justify-center">
