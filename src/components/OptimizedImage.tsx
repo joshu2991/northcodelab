@@ -38,7 +38,7 @@ export function OptimizedImage({
     setIsLoading(false)
   }
 
-  const handleError = (error: any) => {
+  const handleError = () => {
     setHasError(true)
     setIsLoading(false)
   }
