@@ -7,7 +7,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Globe, Zap, ChevronRight } from 'lucide-react'
 import { Button } from './Button'
-import { OptimizedImage } from './OptimizedImage'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -213,14 +212,10 @@ export function PortfolioSection() {
                       ? 'h-[400px] sm:h-[500px] lg:h-[600px] w-[209px] md:w-[321px] mx-auto' 
                       : 'h-[188px] sm:h-[300px] w-full'
                   }`}>
-                    <OptimizedImage
+                    <img
                       src={project.imagePath}
                       alt={project.imageAlt}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                      priority={index < 2}
-                      quality={90}
+                      className="absolute inset-0 w-full h-full object-contain"
                     />
                     
                     {/* Hover Overlay with Button */}
