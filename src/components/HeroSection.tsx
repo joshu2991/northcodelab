@@ -112,9 +112,7 @@ export function HeroSection() {
             className="text-lg md:text-xl text-tertiary max-w-3xl mx-auto leading-relaxed"
             style={{ opacity: 0 }}
           >
-            Expert <strong>MVP development</strong>, <strong>AI chatbot integration</strong>, <strong>Laravel development</strong>, 
-            <strong>React development</strong>, and <strong>Next.js development</strong> services. 
-            We craft custom websites, e-commerce solutions, telemedicine platforms, and digital experiences that inspire, scale, and perform.
+            We craft custom websites, e-commerce solutions, platforms, and digital experiences that inspire, scale, and perform.
           </p>
 
           {/* CTA Buttons */}

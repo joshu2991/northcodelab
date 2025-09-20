@@ -24,7 +24,7 @@ export function Footer() {
                 <OptimizedImage
                   src="/logo/logo_slogan_white.png"
                   alt="North Code Lab - Professional Web Development Services"
-                  width={600}
+                  width={200}
                   height={120}
                   className="h-24 w-auto"
                   priority
