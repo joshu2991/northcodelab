@@ -10,8 +10,8 @@ import {
   MapPin, 
   Send,
   Linkedin,
-  Twitter,
-  Instagram
+  Github,
+  FileText
 } from 'lucide-react'
 import { Button } from './Button'
 
@@ -99,19 +99,34 @@ export function ContactSection() {
       title: 'Email',
       value: 'hello@northcodelab.com',
       href: 'mailto:hello@northcodelab.com',
+      text: 'Direct contact preferred for job opportunities'
     },
     {
       icon: MapPin,
       title: 'Location',
       value: 'Vancouver, Canada',
       href: 'https://maps.app.goo.gl/S6kqax6VNQprUTbR6',
+      text: 'Open to remote, hybrid, or in-office roles'
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/josehumbertotrueba',
+      text: "Let's connect and discuss opportunities"
+    },
+    {
+      icon: Github,
+      title: 'GitHub',
+      href: 'https://github.com/joshu2991',
+      text: 'View my code and contributions'
+    },
+    {
+      icon: FileText,
+      title: 'Resume',
+      href: '/api/resume',
+      text: 'Full work history and technical skills'
     },
   ]
-
-  const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' }  ]
 
   return (
     <section
@@ -134,12 +149,12 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-6">
-            <span className="text-gradient">Let&apos;s Build</span>
+            <span className="text-gradient">Let&apos;s Work</span>
             <br />
-            <span className="text-gradient-blue">Something Together</span>
+            <span className="text-gradient-blue">Together</span>
           </h2>
           <p className="text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your ideas into digital reality? Let&apos;s start the conversation.
+          I&apos;m actively seeking full-time Full Stack Developer opportunities in Vancouver or remote positions within Canada.
           </p>
         </motion.div>
 
@@ -151,7 +166,7 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
             className="glass-effect rounded-3xl p-8 relative"
           >
-            <h3 className="text-2xl font-bold text-primary mb-6">Send us a message</h3>
+            <h3 className="text-2xl font-bold text-primary mb-6">Send me a message</h3>
             
             {error && (
               <motion.div
@@ -287,55 +302,50 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <div>
-              <h3 className="text-2xl font-bold text-primary mb-6">Get in touch</h3>
-              <p className="text-tertiary leading-relaxed mb-8">
-                We&apos;re always excited to hear about new projects and opportunities. 
-                Whether you have a specific idea in mind or just want to explore possibilities, 
-                we&apos;re here to help bring your vision to life.
-              </p>
-            </div>
 
             {/* Contact details */}
             <div className="space-y-6">
-              {contactInfo.map((info) => (
-                <motion.a
-                  key={info.title}
-                  href={info.href}
-                  whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 p-4 glass-effect rounded-xl hover:border-white/20 transition-all duration-300 group"
-                >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 contact-info-icon">
-                    <info.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-primary font-semibold group-hover:text-gradient-blue transition-colors">
-                      {info.title}
-                    </h4>
-                    <p className="text-tertiary">{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
+              {contactInfo.map((info) => {
+                const isResume = info.title.includes('Resume')
+                const linkProps = isResume
+                  ? {
+                      onClick: (e: React.MouseEvent) => {
+                        e.preventDefault()
+                        const link = document.createElement('a')
+                        link.href = '/api/resume'
+                        link.download = 'Jose_Humberto_Trueba_Resume.pdf'
+                        link.click()
+                      },
+                      href: '#'
+                    }
+                  : {
+                      href: info.href,
+                      target: info.href.startsWith('http') ? '_blank' : undefined,
+                      rel: info.href.startsWith('http') ? 'noopener noreferrer' : undefined
+                    }
+
+                return (
+                  <motion.a
+                    key={info.title}
+                    {...linkProps}
+                    whileHover={{ x: 10 }}
+                    className="flex items-center gap-4 p-4 glass-effect rounded-xl hover:border-white/20 transition-all duration-300 group cursor-pointer"
+                  >
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 contact-info-icon">
+                      <info.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="text-primary font-semibold group-hover:text-gradient-blue transition-colors">
+                        {info.title}
+                      </h4>
+                      <p className="text-tertiary">{info.value}</p>
+                      <p className="text-muted">{info.text}</p>
+                    </div>
+                  </motion.a>
+                )
+              })}
             </div>
 
-            {/* Social links */}
-            <div>
-              <h4 className="text-lg font-semibold text-primary mb-4">Follow us</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 glass-effect rounded-xl flex items-center justify-center hover:border-white/20 transition-all duration-300 group"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5 text-tertiary group-hover:text-primary transition-colors" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

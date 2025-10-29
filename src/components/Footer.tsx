@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { Heart, ArrowUp } from 'lucide-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { OptimizedImage } from './OptimizedImage'
 
 export function Footer() {
@@ -12,9 +15,9 @@ export function Footer() {
   return (
     <footer className="relative bg-black/50 backdrop-blur-sm border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +46,7 @@ export function Footer() {
                 >
                   <Heart className="w-4 h-4 fill-current text-error" />
                 </motion.div>
-                <span>by North Code Lab</span>
+                <span>by Jose Trueba</span>
               </div>
             </motion.div>
           </div>
@@ -84,7 +87,7 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h4 className="text-lg font-semibold text-primary mb-4">Services</h4>
+              <h4 className="text-lg font-semibold text-primary mb-4">Skills</h4>
               <ul className="space-y-2">
                 {['Web Development', 'Backend Development', 'E-commerce', 'Performance Optimization', 'Design & Wireframing', 'Consulting'].map((service) => (
                   <li key={service}>
@@ -99,6 +102,53 @@ export function Footer() {
               </ul>
             </motion.div>
           </div>
+
+          {/* Contact Info */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25 }}
+            >
+              <h4 className="text-lg font-semibold text-primary mb-4">Contact</h4>
+              <div className="flex items-center gap-4">
+                <motion.a
+                  href="mailto:hello@northcodelab.com"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-tertiary hover:text-primary transition-colors duration-200"
+                  aria-label="Email: hello@northcodelab.com"
+                  title="Email: hello@northcodelab.com"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} className="footer-icon" />
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/josehumbertotrueba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-tertiary hover:text-primary transition-colors duration-200"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn: linkedin.com/in/josehumbertotrueba"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className="footer-icon" />
+                </motion.a>
+                <motion.a
+                  href="https://github.com/joshu2991"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-tertiary hover:text-primary transition-colors duration-200"
+                  aria-label="GitHub Profile"
+                  title="GitHub: github.com/joshu2991"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="footer-icon" />
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Bottom section */}
@@ -110,15 +160,6 @@ export function Footer() {
         >
           <div className="text-tertiary text-sm">
             © 2025 North Code Lab. All rights reserved.
-          </div>
-          
-          <div className="flex items-center gap-6">
-            <div className="text-tertiary text-sm">
-              Privacy Policy
-            </div>
-            <div className="text-tertiary text-sm">
-              Terms of Service
-            </div>
           </div>
 
           {/* Scroll to top button */}

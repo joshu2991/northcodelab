@@ -112,10 +112,10 @@ export function LogoCarousel() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-space-grotesk mb-4">
-            <span className="text-gradient">Powering Your Ideas With Technology</span>
+            <span className="text-gradient">Powering Ideas With Technology</span>
           </h2>
           <p className="text-lg text-secondary max-w-2xl mx-auto">
-            Cutting-edge tools and frameworks to bring your vision to life
+            Cutting-edge tools and frameworks I use to bring ideas to life
           </p>
         </motion.div>
 

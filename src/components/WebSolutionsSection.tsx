@@ -185,7 +185,7 @@ export function WebSolutionsSection() {
               Need a Custom Solution?
             </h3>
             <p className="text-secondary mb-6 max-w-2xl mx-auto">
-              We also offer custom development services for unique projects that don&apos;t fit our standard packages. 
+              I offer custom development services for unique projects that don&apos;t fit into the standard packages. 
               Let&apos;s discuss your specific requirements.
             </p>
             <div className="flex justify-center">

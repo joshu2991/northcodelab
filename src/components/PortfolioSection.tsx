@@ -122,9 +122,7 @@ export function PortfolioSection() {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-4 sm:mb-6">
             <span className="text-gradient">
-              Featured
-            </span>
-            <br />
+              Featured </span>
             <span className="text-gradient-blue">
               Projects
             </span>
@@ -245,50 +243,6 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center mt-16 sm:mt-20"
-        >
-          <div className="card-primary p-6 sm:p-8 lg:p-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-space-grotesk mb-4 sm:mb-6">
-              <span className="text-gradient">
-                Ready to Start
-              </span>
-              <br />
-              <span className="text-gradient-blue">
-                Your Project?
-              </span>
-            </h3>
-            
-            <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
-              Let&apos;s work together to bring your vision to life with professional digital solutions.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button 
-                size="lg"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group w-full sm:w-auto"
-              >
-                <span className="flex items-center justify-center gap-3">
-                  Get Started
-                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
-                </span>
-              </Button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto text-sm sm:text-base"
-              >
-                View All Projects
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

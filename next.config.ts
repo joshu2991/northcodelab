@@ -24,7 +24,18 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        // Explicitly allow SAMEORIGIN for resume API - MUST come first
+        source: '/api/resume',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+        ],
+      },
+      {
+        // Apply security headers to all routes
+        source: '/:path*',
         headers: [
           {
             key: 'X-Frame-Options',

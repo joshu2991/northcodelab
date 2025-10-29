@@ -506,3 +506,142 @@
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
+
+/* Blog Content Styles */
+.blog-content {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+
+.blog-content h2 {
+  color: var(--text-primary);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-primary);
+}
+
+.blog-content h3 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--accent-primary);
+}
+
+.blog-content h4 {
+  color: var(--text-primary);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+
+.blog-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.blog-content ul,
+.blog-content ol {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.blog-content li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.blog-content ul li {
+  list-style-type: disc;
+}
+
+.blog-content ol li {
+  list-style-type: decimal;
+}
+
+.blog-content code {
+  background: rgba(0, 170, 239, 0.1);
+  color: var(--accent-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.9em;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid rgba(0, 170, 239, 0.2);
+}
+
+.blog-content pre {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  backdrop-filter: blur(8px);
+}
+
+.blog-content pre code {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 0;
+  border: none;
+  font-size: 0.95rem;
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.blog-content a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.blog-content a:hover {
+  color: var(--accent-secondary);
+}
+
+.blog-content blockquote {
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--text-tertiary);
+  font-style: italic;
+  background: rgba(0, 170, 239, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.blog-content hr {
+  border: none;
+  border-top: 1px solid var(--border-primary);
+  margin: 3rem 0;
+}
+
+/* FontAwesome Icon Overrides for Footer */
+.footer-icon {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  font-size: 2.5rem !important;
+}
+
+footer .svg-inline--fa.footer-icon {
+  width: 2rem !important;
+  height: 2rem !important;
+}

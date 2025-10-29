@@ -58,15 +58,15 @@ export function SEOMonitoring() {
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
           if (entry.entryType === 'largest-contentful-paint') {
-            console.log('LCP:', entry.startTime)
+            //console.log('LCP:', entry.startTime)
           }
           if (entry.entryType === 'first-input') {
             const firstInputEntry = entry as PerformanceEventTiming
-            console.log('FID:', firstInputEntry.processingStart - firstInputEntry.startTime)
+            //console.log('FID:', firstInputEntry.processingStart - firstInputEntry.startTime)
           }
           if (entry.entryType === 'layout-shift') {
             const layoutShiftEntry = entry as PerformanceEntry & { value: number }
-            console.log('CLS:', layoutShiftEntry.value)
+            //console.log('CLS:', layoutShiftEntry.value)
           }
         }
       })
@@ -76,8 +76,8 @@ export function SEOMonitoring() {
       // Monitor page load performance
       window.addEventListener('load', () => {
         const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-        console.log('Page Load Time:', navigation.loadEventEnd - navigation.fetchStart)
-        console.log('DOM Content Loaded:', navigation.domContentLoadedEventEnd - navigation.fetchStart)
+        //console.log('Page Load Time:', navigation.loadEventEnd - navigation.fetchStart)
+        //console.log('DOM Content Loaded:', navigation.domContentLoadedEventEnd - navigation.fetchStart)
       })
 
       return () => observer.disconnect()

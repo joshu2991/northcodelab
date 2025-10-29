@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Code, Zap, Sparkles } from 'lucide-react'
+import { FileText, Code, Zap, Sparkles, ArrowRight } from 'lucide-react'
 import { Button } from './Button'
 
 if (typeof window !== 'undefined') {
@@ -112,21 +112,20 @@ export function HeroSection() {
             className="text-lg md:text-xl text-tertiary max-w-3xl mx-auto leading-relaxed"
             style={{ opacity: 0 }}
           >
-            We craft custom websites, e-commerce solutions, platforms, and digital experiences that inspire, scale, and perform.
+            Custom websites, e-commerce solutions, platforms, and digital experiences that inspire, scale, and perform.
           </p>
 
           {/* CTA Buttons */}
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8" style={{ opacity: 0 }}>
-            <Button
-              size="lg"
-              className="group"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <span className="flex items-center gap-2">
-                Start Your Project
+          <Button
+                size="lg"
+                onClick={() => window.location.href = '/resume'}
+                className="flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4" />
+                <span>View Resume</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
+              </Button>
           </div>
 
           {/* Feature highlights */}

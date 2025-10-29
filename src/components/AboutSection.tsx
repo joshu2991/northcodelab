@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Lightbulb, Target, Rocket, Users } from 'lucide-react'
+import { FileText, Linkedin, Mail, CheckCircle } from 'lucide-react'
+import { Button } from './Button'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -80,30 +81,18 @@ export function AboutSection() {
     }
   }, [inView])
 
-  const values = [
+  const highlights = [
     {
-      icon: Lightbulb,
-      title: 'Innovation First',
-      description: 'Every project is an experiment. We push boundaries and explore new possibilities in digital experiences.',
+      text: 'Reduced HR processing time by 80% using Laravel + AI automation',
       color: 'var(--accent-primary)',
     },
     {
-      icon: Target,
-      title: 'Precision Execution',
-      description: 'From concept to deployment, we ensure every detail is crafted with precision and purpose.',
+      text: 'Optimized SQL queries from 13s to 1s',
       color: 'var(--accent-secondary)',
     },
     {
-      icon: Rocket,
-      title: 'Scalable Solutions',
-      description: 'We build for growth, creating digital experiences that scale with your business ambitions.',
+      text: 'Led a team of 4 developers managing multiple projects',
       color: 'var(--accent-tertiary)',
-    },
-    {
-      icon: Users,
-      title: 'User-Centric',
-      description: 'Every solution is designed with the end user in mind, ensuring meaningful and engaging experiences.',
-      color: 'var(--accent-emerald)',
     },
   ]
 
@@ -128,57 +117,44 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-6"
           >
-            <span className="text-gradient">Where Innovation</span>
-            <br />
-            <span className="text-gradient-blue">Meets Execution</span>
+            <span className="text-gradient">About </span>
+            <span className="text-gradient-blue">me</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-secondary max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-secondary max-w-4xl mx-auto leading-relaxed mb-8"
           >
-            At North Code Lab, we specialize in <strong>custom web development</strong> and <strong>digital transformation</strong> 
-            services. Our <strong>Vancouver-based web development company</strong> crafts professional websites, 
-            e-commerce solutions, and web applications that inspire, scale, and perform.
+            Full Stack Developer with 5+ years of experience building scalable web platforms across Canada, Mexico, and Europe.
+            <br /><br />
+            Currently seeking full-time opportunities in Vancouver to work with teams that value:
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4 mb-8"
+          >
+            <span className="text-tertiary">• Clean, maintainable code</span>
+            <span className="text-tertiary">• User-centric product development</span>
+            <span className="text-tertiary">• Modern tech stacks (Laravel, React, AWS)</span>
+            <span className="text-tertiary">• Continuous learning and growth</span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-lg text-tertiary max-w-3xl mx-auto leading-relaxed mb-8"
+          >
+            I&apos;m authorized to work in Canada until August 2026 and available to start immediately.
+          </motion.p>
+
+          
         </div>
-
-        {/* Values grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {values.map((value) => (
-            <motion.div
-              key={value.title}
-              whileHover={{ 
-                y: -10, 
-                scale: 1.02,
-                transition: { duration: 0.3 }
-              }}
-              className="group relative"
-            >
-              <div className="card-primary rounded-2xl p-8 h-full hover:shadow-primary transition-all duration-300 group-hover:border-hover">
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${getIconClass(value.color)}`}>
-                    <value.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-primary group-hover:text-gradient-blue transition-colors">
-                    {value.title}
-                  </h3>
-                  
-                  <p className="text-tertiary leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-
-                {/* Hover effect */}
-                <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${getHoverClass(value.color)}`} />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
 
       </div>
     </section>

@@ -82,44 +82,44 @@ export function ServicesSection() {
   const services = [
     {
       icon: Code2,
-      title: 'Web Development',
-      description: 'Modern websites and applications tailored to your business goals.',
-      features: ['Custom business websites', 'Landing pages and portfolios', 'Web apps with secure user access', 'API integrations'],
+      title: 'Full Stack Development',
+      description: 'Building modern web applications that scale with your business.',
+      features: ['Custom web applications with complex user flows', 'Landing pages and marketing sites optimized for conversion', 'Secure authentication systems with role-based access', 'Third-party API integrations (Stripe, Google, OpenAI, etc.)'],
       color: 'var(--accent-primary)',
     },
     {
       icon: Database,
       title: 'Backend Development',
-      description: 'Powerful and scalable server-side solutions.',
-      features: ['Database design & management', 'Secure authentication & roles', 'Automation & integrations', 'Scalable architecture'],
+      description: 'Server-side solutions designed for performance and reliability.',
+      features: ['Database design, optimization, and query tuning (13s → 1s optimization)', 'Authentication systems and authorization logic', 'Process automation that saves time (40h → 8h reduction achieved)', 'Scalable architecture using AWS (EC2, S3, Lambda, Load Balancers)'],
       color: 'var(--accent-secondary)',
     },
     {
       icon: Globe,
-      title: 'E-commerce Solutions',
-      description: 'Online stores designed to grow with your business.',
-      features: ['Product & inventory management', 'Secure payment gateways', 'Custom checkout flows', 'Analytics & reporting'],
+      title: 'E-commerce & Payments',
+      description: 'Payment systems that handle real transactions securely.',
+      features: ['Stripe and PayPal integration for subscriptions and one-time payments', 'Product catalogs, inventory management, and order processing', 'Custom checkout flows optimized for conversion', 'Transaction reporting and analytics dashboards'],
       color: 'var(--accent-tertiary)',
     },
     {
       icon: Zap,
-      title: 'Performance Optimization',
-      description: 'Faster, more reliable websites that drive results.',
-      features: ['Speed optimization', 'SEO & Core Web Vitals', 'Monitoring & maintenance', 'Cloud hosting setup'],
+      title: 'Performance & Optimization',
+      description: 'Making applications faster, more reliable, and cost-effective.',
+      features: ['Page speed optimization and Core Web Vitals improvements', 'SQL query optimization and database indexing strategies', 'SEO implementation and technical audits', 'Cloud infrastructure setup and cost optimization'],
       color: 'var(--accent-primary)',
     },
     {
       icon: Palette,
-      title: 'Design & Wireframing Support',
-      description: 'Streamlined, modern design powered by AI tools and UI kits.',
-      features: ['Wireframes & mockups (AI-assisted)', 'Responsive layouts', 'Consistent design systems', 'User flow mapping'],
+      title: 'Frontend Development',
+      description: 'User interfaces that are intuitive, responsive, and accessible.',
+      features: ['Vue and React/Next.js applications with modern state management', 'Responsive layouts using Tailwind CSS and custom designs', 'Component libraries and design systems', 'Mobile-first development approaches'],
       color: 'var(--accent-secondary)',
     },
     {
       icon: Headphones,
-      title: 'Consulting & Support',
-      description: 'Expert guidance and quick solutions for your digital needs.',
-      features: ['Technical consulting & audits', 'Troubleshooting & bug fixes', 'Optimizing existing websites', 'Best-practice recommendations'],
+      title: 'AI Integration & Automation',
+      description: 'Leveraging AI to solve real business problems.',
+      features: ['ChatGPT API integration for content analysis and automation', 'AI-powered features that improve user experience', 'Workflow automation using Python (spaCy, automation scripts)', 'Data processing and reporting automation'],
       color: 'var(--accent-tertiary)',
     },
   ]
@@ -145,10 +145,10 @@ export function ServicesSection() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space-grotesk mb-6">
-            <span className="text-gradient">Our Services</span>
+            <span className="text-gradient">Technical Skills & Expertise</span>
           </h2>
           <p className="text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed">
-            Comprehensive digital solutions tailored to your business needs.
+          Technical expertise and proven results across the full development lifecycle.
           </p>
         </motion.div>
 
@@ -196,34 +196,6 @@ export function ServicesSection() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-20"
-        >
-          <div className="glass-effect rounded-3xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold font-space-grotesk mb-6">
-              <span className="text-gradient">Ready to Transform</span>
-              <br />
-              <span className="text-gradient-blue">Your Digital Presence?</span>
-            </h3>
-            
-            <p className="text-xl text-secondary mb-8 leading-relaxed">
-              Let&apos;s discuss your project and create something extraordinary together.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Start Your Project
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

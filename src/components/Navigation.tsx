@@ -23,6 +23,7 @@ export function Navigation() {
     { name: 'Services', href: '#services' },
     { name: 'Solutions', href: '#solutions' },
     { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -44,7 +45,7 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="flex-shrink-0"
             >
-              <a href="#home" className="flex items-center gap-3">
+              <a href="/" className="flex items-center gap-3">
                 {/* Desktop: Show slogan logo, Mobile: Show icon logo */}
                 <div className="hidden md:block">
                   <Image
@@ -69,7 +70,7 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <motion.a
                   key={item.name}
@@ -85,7 +86,7 @@ export function Navigation() {
                       }
                     }, 100)
                   }}
-                  className="text-secondary hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+                  className="text-secondary hover:text-primary px-2 py-2 text-xs font-medium transition-colors duration-200 relative group"
                 >
                   {item.name}
                   <motion.div
