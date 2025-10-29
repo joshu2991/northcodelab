@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { CheckCircle, ArrowLeft, Mail, Clock } from 'lucide-react'
 import Link from 'next/link'
+import { Navigation } from '@/components/Navigation'
 import { Button } from '@/components/Button'
 import { Footer } from '@/components/Footer'
 
@@ -16,125 +17,127 @@ export default function ThankYouPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl bg-gradient-to-r from-purple-500/10 to-pink-500/10" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10" />
-      </div>
+    <main className="min-h-screen">
+      <Navigation />
+      
+      {/* Main Content Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-[calc(100vh-200px)] flex items-center">
+        {/* Background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl blur-blue" />
+          <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full blur-3xl blur-purple" />
+        </div>
 
-      <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Main Content */}
-        <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
-          <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto relative z-10 w-full">
+          {/* Success Icon & Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-center mb-12"
+          >
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-8"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.2,
+                type: 'spring',
+                stiffness: 200
+              }}
+              className="w-24 h-24 mx-auto mb-8 rounded-full glass-effect border-2 border-success flex items-center justify-center relative"
             >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
-                <CheckCircle className="w-10 h-10 text-white" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-success/20 to-emerald-500/20 animate-pulse" />
+              <CheckCircle className="w-12 h-12 text-success relative z-10" />
+            </motion.div>
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-space-grotesk mb-6">
+              <span className="text-gradient">Message</span>
+              <br />
+              <span className="text-gradient-blue">Sent!</span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl md:text-2xl text-secondary max-w-2xl mx-auto leading-relaxed">
+              Thank you for reaching out! I&apos;ve received your message and will get back to you within 24 hours.
+            </p>
+          </motion.div>
+
+          {/* Status Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="card-primary p-6 text-center group hover:scale-[1.02] transition-transform duration-300"
+            >
+              <div className="flex flex-col items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl glass-effect border border-accent-primary flex items-center justify-center group-hover:border-accent-secondary transition-colors">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-primary">Email Sent</h3>
               </div>
-              
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-space-grotesk mb-6">
-                <span className="text-gradient">
-                  Message
-                </span>
-                <br />
-                <span className="text-gradient-blue">
-                  Sent!
-                </span>
-              </h1>
-              
-              <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
-                Thank you for reaching out! We&apos;ve received your message and will get back to you within 24 hours.
+              <p className="text-sm text-tertiary">
+                Your message has been delivered successfully
               </p>
             </motion.div>
 
-            {/* Status Cards */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="card-primary p-6 text-center group hover:scale-[1.02] transition-transform duration-300"
             >
-              <div className="card-primary p-4 sm:p-6 text-center">
-                <div className="flex flex-col items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                    <Mail className="w-4 h-4 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">Email Sent</h3>
+              <div className="flex flex-col items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl glass-effect border border-accent-secondary flex items-center justify-center group-hover:border-accent-primary transition-colors">
+                  <Clock className="w-6 h-6 text-primary" />
                 </div>
-                <p className="text-sm text-gray-300">
-                  Your message has been delivered to our team
-                </p>
+                <h3 className="text-xl font-semibold text-primary">Response Time</h3>
               </div>
-
-              <div className="card-primary p-4 sm:p-6 text-center">
-                <div className="flex flex-col items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                    <Clock className="w-4 h-4 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">Response Time</h3>
-                </div>
-                <p className="text-sm text-gray-300">
-                  We&apos;ll respond within 24 hours
-                </p>
-              </div>
+              <p className="text-sm text-tertiary">
+                I&apos;ll respond within 24 hours
+              </p>
             </motion.div>
+          </motion.div>
 
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Link href="/">
-                <Button 
-                  size="lg"
-                  className="group w-full sm:w-auto"
-                >
-                  <span className="flex items-center justify-center gap-3">
-                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                    Back to Home
-                  </span>
-                </Button>
-              </Link>
-              
-              <Link href="/#portfolio">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-secondary px-8 py-4 w-full sm:w-auto"
-                >
-                  Featured Projects
-                </motion.button>
-              </Link>
-            </motion.div>
-
-            {/* Additional Info */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 p-6 rounded-xl bg-gray-900/30 border border-gray-800/50"
-            >
-              <h3 className="text-lg font-semibold text-white mb-3">What&apos;s Next?</h3>
-              <div className="space-y-2 text-sm text-gray-300">
-                <p>• We&apos;ll review your message and requirements</p>
-                <p>• Our team will prepare a detailed response</p>
-                <p>• We&apos;ll reach out to discuss your project further</p>
-                <p>• If needed, we&apos;ll schedule a consultation call</p>
-              </div>
-            </motion.div>
-          </div>
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link href="/">
+              <Button 
+                size="lg"
+                variant="primary"
+                className="group w-full sm:w-auto"
+              >
+                <span className="flex items-center justify-center gap-3">
+                  <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                  Back to Home
+                </span>
+              </Button>
+            </Link>
+            
+            <Link href="/#portfolio">
+              <Button 
+                size="lg"
+                variant="secondary"
+                className="w-full sm:w-auto"
+              >
+                Featured Projects
+              </Button>
+            </Link>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
       <Footer />
-    </div>
+    </main>
   )
 }
