@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
@@ -8,6 +9,9 @@ import Image from 'next/image'
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,14 +21,70 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleNavClick = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Only handle hash links programmatically, let regular URLs work normally
+    if (!href.startsWith('#')) {
+      setIsOpen(false)
+      return // Let the browser handle regular navigation
+    }
+    
+    e.preventDefault()
+    const elementId = href.replace('#', '')
+    
+    if (isHomePage) {
+      // On homepage, just scroll to the section
+      setIsOpen(false)
+      setTimeout(() => {
+        const element = document.getElementById(elementId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // On other pages, navigate to homepage with hash
+      setIsOpen(false)
+      // Store the target section ID to scroll after navigation
+      sessionStorage.setItem('scrollToSection', elementId)
+      router.push('/')
+    }
+  }
+
+  useEffect(() => {
+    // Handle scroll when arriving at homepage with hash from another page
+    if (isHomePage) {
+      // Check for hash in URL first
+      if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '')
+        setTimeout(() => {
+          const element = document.getElementById(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 300)
+        return // Don't check sessionStorage if we have a hash
+      }
+      // Check for stored scroll target from navigation
+      const scrollToSection = sessionStorage.getItem('scrollToSection')
+      if (scrollToSection) {
+        sessionStorage.removeItem('scrollToSection')
+        setTimeout(() => {
+          const element = document.getElementById(scrollToSection)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 500)
+      }
+    }
+  }, [isHomePage, pathname])
+
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Solutions', href: '#solutions' },
+    { name: 'Skills', href: '#services' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Resume', href: '/resume' },
   ]
 
   return (
@@ -71,31 +131,29 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-6">
-              {navItems.map((item) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    setTimeout(() => {
-                      const elementId = item.href.replace('#', '')
-                      const element = document.getElementById(elementId)
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' })
-                      }
-                    }, 100)
-                  }}
-                  className="text-secondary hover:text-primary px-2 py-2 text-xs font-medium transition-colors duration-200 relative group"
-                >
-                  {item.name}
-                  <motion.div
-                    className="absolute bottom-0 left-0 w-0 h-0.5 nav-underline"
-                    whileHover={{ width: '100%' }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
-              ))}
+              {navItems.map((item) => {
+                // For hash links on non-homepage, prefix with /, otherwise use as-is
+                const linkHref = item.href.startsWith('#') && !isHomePage 
+                  ? `/${item.href}` 
+                  : item.href
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={linkHref}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => handleNavClick(item.href, e)}
+                    className="text-secondary hover:text-primary px-2 py-2 text-xs font-medium transition-colors duration-200 relative group"
+                  >
+                    {item.name}
+                    <motion.div
+                      className="absolute bottom-0 left-0 w-0 h-0.5 nav-underline"
+                      whileHover={{ width: '100%' }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.a>
+                )
+              })}
             </div>
           </div>
 
@@ -121,26 +179,23 @@ export function Navigation() {
               className="md:hidden mt-4 glass-effect border-secondary rounded-xl overflow-hidden"
             >
               <div className="px-4 py-3 space-y-1">
-                {navItems.map((item) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    whileHover={{ x: 10 }}
-                    onClick={() => {
-                      setIsOpen(false)
-                      setTimeout(() => {
-                        const elementId = item.href.replace('#', '')
-                        const element = document.getElementById(elementId)
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' })
-                        }
-                      }, 100)
-                    }}
-                    className="text-secondary hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200"
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
+                {navItems.map((item) => {
+                  // For hash links on non-homepage, prefix with /, otherwise use as-is
+                  const linkHref = item.href.startsWith('#') && !isHomePage 
+                    ? `/${item.href}` 
+                    : item.href
+                  return (
+                    <motion.a
+                      key={item.name}
+                      href={linkHref}
+                      whileHover={{ x: 10 }}
+                      onClick={(e) => handleNavClick(item.href, e)}
+                      className="text-secondary hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200"
+                    >
+                      {item.name}
+                    </motion.a>
+                  )
+                })}
               </div>
             </motion.div>
           )}

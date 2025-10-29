@@ -20,8 +20,8 @@ export function HeroSection() {
   const [displayedText, setDisplayedText] = useState('')
   const [isTyping, setIsTyping] = useState(true)
   const [showOtherElements, setShowOtherElements] = useState(false)
-  
-  const fullText = 'North Code Lab'
+
+  const fullText = 'Jose Trueba'
   const descriptionRef = useRef<HTMLParagraphElement>(null)
   const featuresRef = useRef<HTMLDivElement>(null)
 
@@ -102,8 +102,7 @@ export function HeroSection() {
             className="text-xl md:text-2xl lg:text-3xl text-secondary max-w-4xl mx-auto leading-relaxed"
             style={{ opacity: 0 }}
           >
-            Professional <span className="text-gradient-blue font-semibold">web development</span> services in{' '}
-            <span className="text-gradient-blue font-semibold">Vancouver, Canada</span>
+            <span className="text-gradient-blue font-semibold">Full Stack Developer</span> 
           </p>
 
           {/* Description */}
@@ -112,7 +111,8 @@ export function HeroSection() {
             className="text-lg md:text-xl text-tertiary max-w-3xl mx-auto leading-relaxed"
             style={{ opacity: 0 }}
           >
-            Custom websites, e-commerce solutions, platforms, and digital experiences that inspire, scale, and perform.
+            Building scalable web platforms with Laravel, React, and AWS
+            Currently seeking full-time opportunities in Vancouver
           </p>
 
           {/* CTA Buttons */}
