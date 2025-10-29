@@ -17,48 +17,21 @@ export function SEOContent({ section }: SEOContentProps) {
           structuredData = {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Web Development Services",
-            "description": "Professional web development services including custom websites, e-commerce solutions, and web applications",
+            "name": "Freelance Web Development Services",
+            "description": "Freelance web development services available while seeking full-time opportunities. Expertise in Laravel, React, Next.js, and AWS.",
             "provider": {
-              "@type": "Organization",
-              "name": "North Code Lab",
-              "url": "https://northcodelab.com"
+              "@type": "Person",
+              "name": "Jose Trueba",
+              "url": "https://northcodelab.com",
+              "jobTitle": "Full Stack Developer"
             },
             "serviceType": "Web Development",
             "areaServed": {
               "@type": "Country",
               "name": "Canada"
             },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Web Development Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Custom Web Development",
-                    "description": "Custom websites and web applications built with modern technologies like Laravel, React, and Next.js"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "E-commerce Development",
-                    "description": "Online stores and e-commerce solutions with secure payment processing and inventory management"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Performance Optimization",
-                    "description": "Website speed optimization and Core Web Vitals improvement for better search rankings"
-                  }
-                }
-              ]
-            }
+            "availabilityStarts": "2024",
+            "availabilityEnds": "2026"
           }
           break
 
@@ -66,8 +39,8 @@ export function SEOContent({ section }: SEOContentProps) {
           structuredData = {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "name": "Featured Projects",
-            "description": "Professional web development projects showcasing our expertise in modern web technologies",
+            "name": "Portfolio Projects",
+            "description": "Professional web development projects by Jose Trueba showcasing expertise in modern web technologies",
             "itemListElement": [
               {
                 "@type": "CreativeWork",
@@ -75,8 +48,9 @@ export function SEOContent({ section }: SEOContentProps) {
                 "description": "Online Classes & Community Hub - A scalable baking education platform with video conferencing and progress tracking",
                 "url": "https://baking.northcodelab.com",
                 "creator": {
-                  "@type": "Organization",
-                  "name": "North Code Lab"
+                  "@type": "Person",
+                  "name": "Jose Trueba",
+                  "jobTitle": "Full Stack Developer"
                 },
                 "about": "Education Platform",
                 "keywords": "Laravel, MySQL, AWS, Stripe, Video Conferencing"
@@ -87,8 +61,9 @@ export function SEOContent({ section }: SEOContentProps) {
                 "description": "Elderly Care & Health Management System with multi-role access and vital signs monitoring",
                 "url": "https://care.northcodelab.com",
                 "creator": {
-                  "@type": "Organization",
-                  "name": "North Code Lab"
+                  "@type": "Person",
+                  "name": "Jose Trueba",
+                  "jobTitle": "Full Stack Developer"
                 },
                 "about": "Healthcare",
                 "keywords": "React, Next.js, Node.js, MySQL, Authentication"
@@ -99,8 +74,9 @@ export function SEOContent({ section }: SEOContentProps) {
                 "description": "Telemedicine & Patient Management Platform with AI-powered chatbot and automated marketing",
                 "url": "https://health.northcodelab.com",
                 "creator": {
-                  "@type": "Organization",
-                  "name": "North Code Lab"
+                  "@type": "Person",
+                  "name": "Jose Trueba",
+                  "jobTitle": "Full Stack Developer"
                 },
                 "about": "Telemedicine",
                 "keywords": "Laravel, Livewire, Stripe, AI Chatbot, Email Automation"
@@ -113,19 +89,18 @@ export function SEOContent({ section }: SEOContentProps) {
           structuredData = {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contact North Code Lab",
-            "description": "Get in touch with our professional web development team in Vancouver, Canada",
+            "name": "Contact Jose Trueba",
+            "description": "Get in touch with Jose Trueba, Full Stack Developer seeking opportunities in Vancouver, Canada",
             "mainEntity": {
-              "@type": "Organization",
-              "name": "North Code Lab",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+1-604-000-0000",
-                "contactType": "customer service",
-                "email": "hello@northcodelab.com",
-                "areaServed": "CA",
-                "availableLanguage": "English"
-              },
+              "@type": "Person",
+              "name": "Jose Trueba",
+              "jobTitle": "Full Stack Developer",
+              "url": "https://northcodelab.com",
+              "email": "hello@northcodelab.com",
+              "sameAs": [
+                "https://linkedin.com/in/josehumbertotrueba",
+                "https://github.com/joshu2991"
+              ],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Vancouver",
@@ -164,35 +139,35 @@ export function SEOContent({ section }: SEOContentProps) {
 export function SEOKeywords() {
   return (
     <div className="sr-only" aria-hidden="true">
-      <h2>Professional Web Development Services in Vancouver, Canada</h2>
+      <h2>Jose Trueba - Full Stack Developer Portfolio in Vancouver, BC</h2>
       <p>
-        North Code Lab specializes in MVP development, AI chatbot integration, custom web development, 
-        e-commerce solutions, and digital experiences. Our expert team provides Laravel development, 
-        React development, Next.js development, and professional web design services in Vancouver, British Columbia.
+        Jose Trueba is a Full Stack Developer with 5+ years of experience seeking full-time opportunities in Vancouver, BC. 
+        Specializes in Laravel, React, Next.js, AWS, and database optimization. Expert in building scalable web platforms, 
+        reducing SQL query times by 92%, integrating payment systems, and leading development teams.
       </p>
       <p>
-        We offer comprehensive web solutions including MVP development, AI chatbot development, 
-        custom websites, web applications, e-commerce development, telemedicine platforms, 
-        performance optimization, and digital transformation services. Our Vancouver-based web development 
-        company serves clients across Canada with professional web services and cutting-edge technology solutions.
+        Portfolio showcases expertise in full stack development including Laravel development, React development, 
+        Next.js development, AWS cloud services, MySQL and PostgreSQL database optimization, Stripe payment integration, 
+        and AI chatbot integration. Seeking employment opportunities with teams that value clean code, modern tech stacks, 
+        and continuous learning.
       </p>
-      <h3>Web Development Technologies</h3>
+      <h3>Technical Skills and Expertise</h3>
       <ul>
-        <li>MVP Development - Minimum viable product development for startups</li>
-        <li>AI Chatbot Development - Custom chatbot integration and AI-powered solutions</li>
-        <li>Laravel Development - PHP framework for robust web applications</li>
+        <li>Laravel Development - PHP framework for robust backend applications</li>
         <li>React Development - Modern JavaScript library for user interfaces</li>
-        <li>Next.js Development - Full-stack React framework for production</li>
-        <li>E-commerce Development - Online stores with secure payment processing</li>
-        <li>Telemedicine Development - Healthcare platforms and patient management systems</li>
-        <li>Custom Web Applications - Tailored solutions for business needs</li>
+        <li>Next.js Development - Full-stack React framework for production applications</li>
+        <li>Node.js Development - Server-side JavaScript runtime</li>
+        <li>AWS Cloud Services - Infrastructure and deployment on Amazon Web Services</li>
+        <li>Database Optimization - Reduced SQL query times from 13s to 1s (92% improvement)</li>
+        <li>Stripe Payment Integration - Secure payment processing systems</li>
+        <li>AI Chatbot Integration - ChatGPT API integration with Laravel</li>
         <li>Performance Optimization - Speed and Core Web Vitals improvement</li>
-        <li>Digital Transformation - Modernizing business processes</li>
+        <li>Team Leadership - Led teams of 4+ developers across multiple projects</li>
       </ul>
-      <h3>Service Areas</h3>
+      <h3>Location and Availability</h3>
       <p>
-        Serving Vancouver, British Columbia, and clients across Canada. 
-        Professional web development services available for businesses of all sizes.
+        Based in Vancouver, British Columbia, Canada. Work permit valid until August 2026. 
+        Available for immediate start. Seeking full-time Full Stack Developer positions in Vancouver or remote within Canada.
       </p>
     </div>
   )

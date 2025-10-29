@@ -1,15 +1,16 @@
-# North Code Lab - Landing Page
+# Jose Trueba - Portfolio Website
 
-A modern, immersive landing page for North Code Lab built with Next.js, React, Tailwind CSS, GSAP, and Framer Motion.
+A modern, responsive portfolio website showcasing my work as a Full Stack Developer. This portfolio is designed to demonstrate my technical skills, projects, and experience while seeking full-time opportunities in Vancouver, BC.
 
 ## 🚀 Features
 
 - **Modern Design**: Clean, minimalistic design with immersive animations
 - **Responsive**: Fully responsive across all devices
 - **Smooth Animations**: GSAP and Framer Motion for fluid animations
-- **3D Elements**: Three.js integration for 3D visual elements
 - **Interactive UI**: Hover effects, scroll animations, and micro-interactions
 - **Performance Optimized**: Smooth scrolling with Lenis and optimized animations
+- **SEO Optimized**: Proper metadata and structured data for search engines
+- **Accessible**: Built with accessibility best practices
 
 ## 🛠️ Tech Stack
 
@@ -17,9 +18,13 @@ A modern, immersive landing page for North Code Lab built with Next.js, React, T
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
 - **Animations**: GSAP, Framer Motion
-- **3D Graphics**: Three.js, React Three Fiber
 - **Smooth Scrolling**: Lenis
-- **Icons**: Lucide React
+- **Icons**: Lucide React, FontAwesome
+
+### Development
+
+- Built with modern AI-assisted development tools
+- Built using industry-standard development practices including AI pair programming
 
 ## 📦 Installation
 
@@ -39,27 +44,32 @@ A modern, immersive landing page for North Code Lab built with Next.js, React, T
 ## 🎨 Design Features
 
 ### Hero Section
-- Animated 3D sphere with distortion effects
 - Gradient text animations
 - Parallax scrolling effects
 - Interactive call-to-action buttons
 
+
 ### About Section
-- Value proposition cards with hover effects
+- Job seeker banner with key information
+- Work authorization information
 - Smooth scroll-triggered animations
 - Glass morphism design elements
 
-### Services Section
+### Skills Section
+- Technical skills showcase
 - Interactive service cards
 - Feature lists with checkmarks
 - Gradient hover effects
-- 3D transform animations
 
 ### Portfolio Section
-- Filterable project grid
+- Showcase of key projects
 - Smooth layout transitions
 - Project overlay effects
-- Category-based filtering
+
+### Blog Section
+- Technical articles and insights
+- Full article pages with rich content
+- Call-to-action after each article
 
 ### Contact Section
 - Animated contact form
@@ -67,11 +77,15 @@ A modern, immersive landing page for North Code Lab built with Next.js, React, T
 - Social media links
 - Success state animations
 
+### Resume Page
+- Embedded PDF viewer
+- Download functionality
+- Professional presentation
+
 ## 🎯 Key Animations
 
 - **GSAP ScrollTrigger**: Scroll-based animations
 - **Framer Motion**: Component transitions and hover effects
-- **Three.js**: 3D sphere with material distortion
 - **Lenis**: Smooth scrolling experience
 - **CSS Animations**: Custom keyframe animations
 
@@ -85,9 +99,10 @@ A modern, immersive landing page for North Code Lab built with Next.js, React, T
 ## 🚀 Performance
 
 - Optimized animations with proper cleanup
-- Lazy loading for 3D components
+- Lazy loading for components
 - Efficient scroll listeners
 - Minimal bundle size
+- Image optimization with Next.js Image component
 
 ## 🎨 Customization
 
@@ -98,10 +113,22 @@ The design system is built with Tailwind CSS and can be easily customized:
 - Animations: Adjust timing and easing in component files
 - Layout: Modify grid systems and spacing
 
+## 📝 About This Portfolio
+
+This portfolio website serves as a comprehensive showcase of my skills, projects, and experience as a Full Stack Developer. The website highlights my technical capabilities while demonstrating professional design and development practices.
+
+### Key Highlights
+
+- **Full Stack Development**: Laravel, React, Node.js, AWS
+- **Performance Optimization**: Reduced SQL query times by 92% in production systems
+- **Payment Systems**: Built secure Stripe payment integrations
+- **Team Leadership**: Led teams of developers across multiple projects
+- **Problem Solving**: Focused on database optimization, API integrations, and scalable architectures
+
 ## 📄 License
 
-This project is created for North Code Lab. All rights reserved.
+This portfolio is created and maintained by Jose Trueba. All rights reserved.
 
 ---
 
-**North Code Lab** - Building the future of digital experiences.
+**Jose Trueba** - Full Stack Developer seeking opportunities in Vancouver, BC

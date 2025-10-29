@@ -13,12 +13,12 @@ interface SEOHeadProps {
 }
 
 export function SEOHead({
-  title = 'North Code Lab - Professional Web Development Services | Vancouver, Canada',
-  description = 'Professional web development, e-commerce solutions, and digital experiences. Expert Laravel, React, Next.js development in Vancouver, Canada. Custom websites, web applications, and digital transformation services.',
-  keywords = 'web development Vancouver, custom web development, Laravel development, React development, Next.js development, e-commerce development, digital agency Canada, web design Vancouver, professional web services, custom web applications, web development company, digital transformation, web solutions, Vancouver web developer',
+  title = 'Jose Trueba - Full Stack Developer | Vancouver, BC',
+  description = 'Full Stack Developer seeking opportunities in Vancouver. Expertise in Laravel, React, AWS. Reduced SQL queries by 92%, built payment systems, led dev teams.',
+  keywords = 'Jose Trueba, Full Stack Developer Vancouver, Laravel developer Vancouver, React developer Vancouver, hire full stack developer, software engineer Vancouver',
   canonicalUrl = 'https://northcodelab.com',
   ogImage = 'https://northcodelab.com/og-image.png',
-  ogType = 'website',
+  ogType = 'profile',
   twitterCard = 'summary_large_image',
   noindex = false,
   structuredData
@@ -27,32 +27,14 @@ export function SEOHead({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": "https://northcodelab.com/#organization",
-        "name": "North Code Lab",
+        "@type": "Person",
+        "@id": "https://northcodelab.com/#person",
+        "name": "Jose Trueba",
+        "jobTitle": "Full Stack Developer",
         "url": "https://northcodelab.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://northcodelab.com/logo/logo_slogan_white.png",
-          "width": 600,
-          "height": 120
-        },
-        "description": "Professional web development studio specializing in custom websites, web applications, and digital experiences. Based in Vancouver, Canada.",
-        "foundingDate": "2024",
-        "founders": [
-          {
-            "@type": "Person",
-            "name": "North Code Lab Team"
-          }
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+1-604-000-0000",
-          "contactType": "customer service",
-          "email": "hello@northcodelab.com",
-          "areaServed": "CA",
-          "availableLanguage": "English"
-        },
+        "image": "https://northcodelab.com/logo/logo_slogan_white.png",
+        "description": "Full Stack Developer with 5+ years of experience building scalable web platforms. Seeking full-time opportunities in Vancouver, BC.",
+        "email": "hello@northcodelab.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Vancouver",
@@ -60,112 +42,44 @@ export function SEOHead({
           "addressCountry": "CA"
         },
         "sameAs": [
-          "https://linkedin.com/company/north-code-lab",
-          "https://twitter.com/northcodelab",
-          "https://instagram.com/northcodelab"
-        ]
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://northcodelab.com/#localbusiness",
-        "name": "North Code Lab",
-        "image": "https://northcodelab.com/logo/logo_slogan_white.png",
-        "description": "Professional web development services in Vancouver, Canada. Specializing in custom websites, e-commerce solutions, and digital experiences.",
-        "url": "https://northcodelab.com",
-        "telephone": "+1-604-000-0000",
-        "email": "hello@northcodelab.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Vancouver",
-          "addressLocality": "Vancouver",
-          "addressRegion": "BC",
-          "postalCode": "V6B 1A1",
-          "addressCountry": "CA"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 49.2827,
-          "longitude": -123.1207
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "17:00"
-        },
-        "priceRange": "$$",
-        "serviceArea": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 49.2827,
-            "longitude": -123.1207
+          "https://linkedin.com/in/josehumbertotrueba",
+          "https://github.com/joshu2991"
+        ],
+        "knowsAbout": [
+          "Laravel",
+          "React",
+          "Node.js",
+          "AWS",
+          "MySQL",
+          "PostgreSQL",
+          "PHP",
+          "JavaScript",
+          "TypeScript",
+          "Next.js"
+        ],
+        "seeks": {
+          "@type": "JobPosting",
+          "title": "Full Stack Developer",
+          "jobLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vancouver",
+              "addressRegion": "BC",
+              "addressCountry": "CA"
+            }
           },
-          "geoRadius": "50000"
+          "employmentType": "FULL_TIME"
         }
       },
       {
         "@type": "WebSite",
         "@id": "https://northcodelab.com/#website",
         "url": "https://northcodelab.com",
-        "name": "North Code Lab",
-        "description": "Professional web development services in Vancouver, Canada",
+        "name": "Jose Trueba - Portfolio",
+        "description": "Portfolio website showcasing Full Stack Developer skills and projects",
         "publisher": {
-          "@id": "https://northcodelab.com/#organization"
-        },
-        "potentialAction": [
-          {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://northcodelab.com/?s={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
-        ]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://northcodelab.com/#services",
-        "name": "Web Development Services",
-        "description": "Professional web development, e-commerce solutions, and digital experiences",
-        "provider": {
-          "@id": "https://northcodelab.com/#organization"
-        },
-        "serviceType": "Web Development",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Canada"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Web Development Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Custom Web Development",
-                "description": "Custom websites and web applications built with modern technologies"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "E-commerce Development",
-                "description": "Online stores and e-commerce solutions with secure payment processing"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Performance Optimization",
-                "description": "Website speed optimization and Core Web Vitals improvement"
-              }
-            }
-          ]
+          "@id": "https://northcodelab.com/#person"
         }
       }
     ]
@@ -179,7 +93,7 @@ export function SEOHead({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content="North Code Lab" />
+      <meta name="author" content="Jose Trueba" />
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
       <meta name="googlebot" content="index,follow" />
       <meta name="bingbot" content="index,follow" />
@@ -192,28 +106,26 @@ export function SEOHead({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content="North Code Lab" />
+      <meta property="og:site_name" content="Jose Trueba - Portfolio" />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="North Code Lab - Professional Web Development Services" />
+      <meta property="og:image:alt" content="Jose Trueba - Full Stack Developer" />
       <meta property="og:locale" content="en_CA" />
       
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:site" content="@northcodelab" />
-      <meta name="twitter:creator" content="@northcodelab" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content="North Code Lab - Professional Web Development Services" />
+      <meta name="twitter:image:alt" content="Jose Trueba - Full Stack Developer" />
       
       {/* Additional SEO Meta Tags */}
       <meta name="theme-color" content="#00AEEF" />
       <meta name="msapplication-TileColor" content="#101010" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta name="apple-mobile-web-app-title" content="North Code Lab" />
+      <meta name="apple-mobile-web-app-title" content="Jose Trueba" />
       
       {/* Language and Region */}
       <meta name="language" content="English" />
