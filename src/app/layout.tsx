@@ -18,10 +18,10 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: 'North Code Lab - Professional Web Development Services | Vancouver, Canada',
-    template: '%s | North Code Lab'
+    default: 'Jose Trueba - Full Stack Developer | Vancouver, BC',
+    template: '%s | Jose Trueba'
   },
-  description: 'Professional web development, MVP development, and AI chatbot integration services in Vancouver, Canada. Expert Laravel, React, Next.js development for startups, healthcare, and e-commerce. Custom websites, telemedicine platforms, and digital transformation solutions.',
+  description: 'Full Stack Developer with expertise in Laravel, React, and AWS. Building scalable web platforms with a focus on performance and security.',
   keywords: [
     'web development Vancouver',
     'custom web development',

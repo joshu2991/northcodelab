@@ -26,7 +26,7 @@ export function Footer() {
               <div className="mb-4">
                 <OptimizedImage
                   src="/logo/logo_slogan_white.png"
-                  alt="North Code Lab - Professional Web Development Services"
+                  alt="Jose Trueba - Full Stack Developer | Vancouver, BC"
                   width={200}
                   height={120}
                   className="h-24 w-auto"

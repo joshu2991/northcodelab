@@ -11,7 +11,6 @@ export function BlogSection() {
       title: 'How I Reduced SQL Query Time from 13s to 1s',
       description: 'A deep dive into SQL optimization techniques, indexing strategies, and query refactoring that dramatically improved database performance in a production Laravel application.',
       readTime: '8 min read',
-      date: 'January 2024',
       excerpt: 'Discover the optimization journey that transformed a critical database query from taking 13 seconds to just 1 second through strategic indexing, query optimization, and database architecture improvements.'
     },
     {
@@ -19,7 +18,6 @@ export function BlogSection() {
       title: 'Integrating ChatGPT with Laravel: A Practical Guide',
       description: 'Step-by-step guide to integrating OpenAI\'s ChatGPT API with Laravel applications, including error handling, rate limiting, and best practices for production deployments.',
       readTime: '12 min read',
-      date: 'December 2023',
       excerpt: 'Learn how to seamlessly integrate ChatGPT into your Laravel applications with real-world examples, proper error handling, and performance optimization strategies.'
     },
     {
@@ -27,7 +25,6 @@ export function BlogSection() {
       title: 'Building a Stripe Payment System: Lessons Learned',
       description: 'Real-world insights from implementing a comprehensive Stripe payment system, covering webhooks, subscription management, error handling, and security best practices.',
       readTime: '15 min read',
-      date: 'November 2023',
       excerpt: 'Key lessons and best practices learned while building a production-ready Stripe payment integration, including handling webhooks, managing subscriptions, and ensuring transaction security.'
     },
   ]
@@ -78,10 +75,6 @@ export function BlogSection() {
                 <div className="card-primary rounded-2xl p-8 h-full hover:shadow-primary transition-all duration-300 group-hover:border-hover flex flex-col">
                   {/* Article meta */}
                   <div className="flex items-center gap-4 text-sm text-tertiary mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>{article.date}</span>
-                    </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       <span>{article.readTime}</span>

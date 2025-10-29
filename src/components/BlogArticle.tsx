@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { BlogCTA } from './BlogCTA'
 
 interface BlogArticleProps {
   article: {
     title: string
-    date: string
     readTime: string
     content: ReactNode
   }
@@ -53,10 +53,6 @@ export function BlogArticle({ article }: BlogArticleProps) {
           
           <div className="flex items-center gap-6 text-tertiary">
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span>{article.date}</span>
-            </div>
-            <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
               <span>{article.readTime}</span>
             </div>
@@ -73,6 +69,9 @@ export function BlogArticle({ article }: BlogArticleProps) {
           <div className="blog-content">
             {article.content}
           </div>
+          
+          {/* Call-to-Action */}
+          <BlogCTA />
         </motion.article>
       </div>
     </section>

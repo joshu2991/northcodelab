@@ -5,7 +5,6 @@ import { BlogArticle } from '@/components/BlogArticle'
 
 const article = {
   title: 'Building a Stripe Payment System: Lessons Learned',
-  date: 'November 2023',
   readTime: '15 min read',
   content: (
     <>

@@ -128,28 +128,6 @@ export function HeroSection() {
               </Button>
           </div>
 
-          {/* Feature highlights */}
-          <div
-            ref={featuresRef}
-            className="flex flex-wrap justify-center gap-8 pt-16"
-            style={{ opacity: 0 }}
-          >
-            {[
-              { icon: Code, text: 'Innovation' },
-              { icon: Zap, text: 'Performance' },
-              { icon: Sparkles, text: 'Creativity' },
-            ].map(({ icon: Icon, text }) => (
-              <div
-                key={text}
-                className="flex flex-col items-center gap-2 text-tertiary group"
-              >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 glass-effect">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-sm font-medium group-hover:text-accent transition-colors">{text}</span>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
 

@@ -199,7 +199,7 @@ export function ContactSection() {
                     </div>
                     
                     <h3 className="text-xl font-semibold text-white mb-2">Sending Message...</h3>
-                    <p className="text-gray-300 text-sm">Please wait while we deliver your message</p>
+                    <p className="text-gray-300 text-sm">Please wait while your message is being delivered</p>
                   </div>
                 </div>
               </motion.div>
@@ -253,7 +253,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 contact-form-input"
-                    placeholder="Project inquiry, consultation, etc."
+                    placeholder="Job opportunity, collaboration, etc."
                   />
                 </div>
 
@@ -269,7 +269,7 @@ export function ContactSection() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 rounded-xl text-primary placeholder-tertiary focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none contact-form-input"
-                    placeholder="Tell us about your project..."
+                    placeholder="Tell me about the opportunity or how we can work together..."
                   />
                 </div>
 
