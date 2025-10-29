@@ -1,11 +1,60 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export function LogoCarousel() {
   const [shuffledLogos, setShuffledLogos] = useState<string[]>([])
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Helper function to format technology names
+  const formatTechName = (logo: string): string => {
+    const name = logo.replace('.png', '')
+    // Handle special cases
+    const techNames: Record<string, string> = {
+      'nextjs': 'Next.js',
+      'chatgpt': 'ChatGPT',
+      'mongodb': 'MongoDB',
+      'mysql': 'MySQL',
+      'php': 'PHP',
+      'aws': 'Amazon Web Services',
+      'chatbot': 'Chatbot',
+      'figma': 'Figma',
+      'github': 'GitHub',
+      'laravel': 'Laravel',
+      'node': 'Node.js',
+      'nvidia': 'NVIDIA',
+      'react': 'React',
+      'stripe': 'Stripe',
+      'tailwind': 'Tailwind CSS'
+    }
+    return techNames[name.toLowerCase()] || name.charAt(0).toUpperCase() + name.slice(1)
+  }
+
+  // Handle technology hover with delay on mouse leave
+  const handleMouseEnter = (logo: string) => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = null
+    }
+    // Immediately show the technology name
+    setHoveredTech(logo)
+  }
+
+  const handleMouseLeave = () => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+    // Set a timeout to revert to "Technologies" after 2 seconds
+    timeoutRef.current = setTimeout(() => {
+      setHoveredTech(null)
+      timeoutRef.current = null
+    }, 2000)
+  }
 
   // Shuffle logos on component mount and when page refreshes
   useEffect(() => {
@@ -30,6 +79,13 @@ export function LogoCarousel() {
     
     const shuffled = [...logoFiles].sort(() => Math.random() - 0.5)
     setShuffledLogos(shuffled)
+
+    // Cleanup timeout on unmount
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
   }, [])
 
   // Create multiple sets of logos for seamless infinite scroll
@@ -92,6 +148,8 @@ export function LogoCarousel() {
                     scale: 1.1,
                     transition: { duration: 0.2 }
                   }}
+                  onMouseEnter={() => handleMouseEnter(logo)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div className="relative w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20">
                     <Image
@@ -106,6 +164,19 @@ export function LogoCarousel() {
               ))}
             </motion.div>
           </div>
+          
+          {/* Technology name display */}
+          <motion.div
+            key={hoveredTech || 'default'}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-center mt-8"
+          >
+            <p className="text-xl md:text-2xl font-semibold text-gradient">
+              {hoveredTech ? formatTechName(hoveredTech) : 'Technologies'}
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

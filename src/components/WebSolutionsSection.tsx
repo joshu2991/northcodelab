@@ -9,7 +9,6 @@ const packages = [
     name: 'Starter Package',
     subtitle: 'Landing Page / Microsite',
     description: 'For entrepreneurs or small businesses that just need a quick online presence.',
-    price: 'From $600 USD',
     delivery: '2-4 days',
     icon: Globe,
     color: 'var(--accent-primary)',
@@ -26,7 +25,6 @@ const packages = [
     name: 'Business Package',
     subtitle: 'Corporate Website',
     description: 'For companies looking for a professional website with multiple pages.',
-    price: 'From $1,200 USD',
     delivery: '3–7 days',
     icon: Users,
     color: 'var(--accent-secondary)',
@@ -43,7 +41,6 @@ const packages = [
     name: 'Pro Package',
     subtitle: 'Simple Web Platform / MVP Lite',
     description: 'For startups that want to validate an idea with real users.',
-    price: 'From $3,500 USD',
     delivery: '1–2 weeks',
     icon: Code,
     color: 'var(--accent-tertiary)',
@@ -60,7 +57,6 @@ const packages = [
     name: 'Enterprise Package',
     subtitle: 'Advanced MVP / Scalable Platform',
     description: 'For larger projects that require a robust and growth-ready solution.',
-    price: 'Contact us',
     delivery: '3–4 weeks',
     icon: Shield,
     color: 'var(--accent-emerald)',
@@ -153,11 +149,6 @@ export function WebSolutionsSection() {
 
                   {/* Price */}
                   <div className="text-center mb-6">
-                    <div 
-                      className={`text-3xl font-bold mb-1 ${pkg.popular ? 'text-gradient-blue' : 'text-primary'}`}
-                    >
-                      {pkg.price}
-                    </div>
                     <div className="flex items-center justify-center gap-1 text-sm text-tertiary">
                       <Clock className="w-4 h-4" />
                       <span>Delivery in {pkg.delivery}</span>
