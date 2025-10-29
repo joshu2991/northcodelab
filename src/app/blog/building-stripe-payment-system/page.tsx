@@ -13,7 +13,7 @@ const article = {
       <p>Building a robust Stripe payment integration requires careful consideration of security, error handling, and user experience. Here are the key lessons I learned.</p>
 
       <h2>Initial Setup</h2>
-      <p>Install Stripe's Laravel package:</p>
+      <p>Install Stripe&apos;s Laravel package:</p>
       <pre><code>composer require stripe/stripe-php</code></pre>
 
       <h2>Webhook Handling</h2>
@@ -65,11 +65,11 @@ try {
         <li><strong>Use HTTPS only</strong> - All payment requests must be encrypted</li>
         <li><strong>Validate webhook signatures</strong> - Prevent fraudulent webhook calls</li>
         <li><strong>Idempotency keys</strong> - Prevent duplicate charges</li>
-        <li><strong>PCI compliance</strong> - Follow Stripe's guidelines</li>
+        <li><strong>PCI compliance</strong> - Follow Stripe&apos;s guidelines</li>
       </ol>
 
       <h2>Testing</h2>
-      <p>Use Stripe's test mode extensively:</p>
+      <p>Use Stripe&apos;s test mode extensively:</p>
       <pre><code>{`if (app()->environment() !== 'production') {
     \\Stripe\\Stripe::setApiKey(config('services.stripe.test_key'));
 }`}</code></pre>
@@ -94,9 +94,9 @@ try {
       <h2>Key Lessons Learned</h2>
       <ol>
         <li><strong>Idempotency is crucial</strong> - Always use idempotency keys</li>
-        <li><strong>Webhooks are critical</strong> - Don't rely solely on redirect URLs</li>
+        <li><strong>Webhooks are critical</strong> - Don&apos;t rely solely on redirect URLs</li>
         <li><strong>Error messages matter</strong> - Provide clear feedback to users</li>
-        <li><strong>Test thoroughly</strong> - Use Stripe's test cards extensively</li>
+        <li><strong>Test thoroughly</strong> - Use Stripe&apos;s test cards extensively</li>
         <li><strong>Monitor everything</strong> - Track all payment events</li>
         <li><strong>Handle edge cases</strong> - Partial failures, network issues, etc.</li>
         <li><strong>Keep sensitive data secure</strong> - Never log card details</li>

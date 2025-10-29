@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
@@ -105,7 +106,7 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="flex-shrink-0"
             >
-              <a href="/" className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-3">
                 {/* Desktop: Show slogan logo, Mobile: Show icon logo */}
                 <div className="hidden md:block">
                   <Image
@@ -125,7 +126,7 @@ export function Navigation() {
                     className="h-12 w-12"
                   />
                 </div>
-              </a>
+              </Link>
             </motion.div>
 
           {/* Desktop Navigation */}

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import Link from 'next/link'
-import { Button } from './Button'
 
 export function BlogSection() {
   const articles = [

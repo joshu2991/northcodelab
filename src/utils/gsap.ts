@@ -10,7 +10,6 @@ import { Flip } from 'gsap/Flip'
 import { Observer } from 'gsap/Observer'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { SplitText } from 'gsap/SplitText'
-import { useGSAP } from '@gsap/react'
 
 // Register all GSAP plugins
 if (typeof window !== 'undefined') {
@@ -221,9 +220,6 @@ export const utils = {
   easeOut: (t: number) => 1 - Math.pow(1 - t, 3),
   easeIn: (t: number) => t * t * t
 }
-
-// Export useGSAP hook for React components
-export { useGSAP }
 
 // Export gsap instance
 export { gsap }

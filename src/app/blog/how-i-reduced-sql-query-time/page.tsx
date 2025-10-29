@@ -14,7 +14,7 @@ const article = {
       <p>The query was complex, joining multiple tables with millions of records and performing aggregations across date ranges.</p>
 
       <h2>Initial Analysis</h2>
-      <p>First, I used Laravel's query logging and EXPLAIN to understand what was happening:</p>
+      <p>First, I used Laravel&apos;s query logging and EXPLAIN to understand what was happening:</p>
       <pre><code>EXPLAIN SELECT ...</code></pre>
       <p>The results showed:</p>
       <ul>

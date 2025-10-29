@@ -61,12 +61,14 @@ export function SEOMonitoring() {
             //console.log('LCP:', entry.startTime)
           }
           if (entry.entryType === 'first-input') {
-            const firstInputEntry = entry as PerformanceEventTiming
-            //console.log('FID:', firstInputEntry.processingStart - firstInputEntry.startTime)
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const _firstInputEntry = entry as PerformanceEventTiming
+            //console.log('FID:', _firstInputEntry.processingStart - _firstInputEntry.startTime)
           }
           if (entry.entryType === 'layout-shift') {
-            const layoutShiftEntry = entry as PerformanceEntry & { value: number }
-            //console.log('CLS:', layoutShiftEntry.value)
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const _layoutShiftEntry = entry as PerformanceEntry & { value: number }
+            //console.log('CLS:', _layoutShiftEntry.value)
           }
         }
       })
@@ -75,9 +77,10 @@ export function SEOMonitoring() {
 
       // Monitor page load performance
       window.addEventListener('load', () => {
-        const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-        //console.log('Page Load Time:', navigation.loadEventEnd - navigation.fetchStart)
-        //console.log('DOM Content Loaded:', navigation.domContentLoadedEventEnd - navigation.fetchStart)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const _navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
+        //console.log('Page Load Time:', _navigation.loadEventEnd - _navigation.fetchStart)
+        //console.log('DOM Content Loaded:', _navigation.domContentLoadedEventEnd - _navigation.fetchStart)
       })
 
       return () => observer.disconnect()

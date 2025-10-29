@@ -5,8 +5,6 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FileText, Linkedin, Mail, CheckCircle } from 'lucide-react'
-import { Button } from './Button'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -17,26 +15,6 @@ export function AboutSection() {
     threshold: 0.2,
     triggerOnce: true,
   })
-
-  const getIconClass = (color: string) => {
-    switch (color) {
-      case 'var(--accent-primary)': return 'value-icon-primary'
-      case 'var(--accent-secondary)': return 'value-icon-secondary'
-      case 'var(--accent-tertiary)': return 'value-icon-tertiary'
-      case 'var(--accent-emerald)': return 'value-icon-emerald'
-      default: return 'value-icon-primary'
-    }
-  }
-
-  const getHoverClass = (color: string) => {
-    switch (color) {
-      case 'var(--accent-primary)': return 'value-hover-primary'
-      case 'var(--accent-secondary)': return 'value-hover-secondary'
-      case 'var(--accent-tertiary)': return 'value-hover-tertiary'
-      case 'var(--accent-emerald)': return 'value-hover-emerald'
-      default: return 'value-hover-primary'
-    }
-  }
 
   const sectionRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
@@ -80,21 +58,6 @@ export function AboutSection() {
       return () => ctx.revert()
     }
   }, [inView])
-
-  const highlights = [
-    {
-      text: 'Reduced HR processing time by 80% using Laravel + AI automation',
-      color: 'var(--accent-primary)',
-    },
-    {
-      text: 'Optimized SQL queries from 13s to 1s',
-      color: 'var(--accent-secondary)',
-    },
-    {
-      text: 'Led a team of 4 developers managing multiple projects',
-      color: 'var(--accent-tertiary)',
-    },
-  ]
 
   return (
     <section

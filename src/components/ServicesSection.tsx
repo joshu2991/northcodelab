@@ -14,7 +14,6 @@ import {
   CheckCircle,
   Headphones
 } from 'lucide-react'
-import { Button } from './Button'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)

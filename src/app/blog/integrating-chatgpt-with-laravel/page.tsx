@@ -10,7 +10,7 @@ const article = {
   content: (
     <>
       <h2>Introduction</h2>
-      <p>Integrating OpenAI's ChatGPT API into Laravel applications opens up powerful possibilities for AI-driven features. In this guide, I'll walk through a production-ready implementation.</p>
+      <p>Integrating OpenAI&apos;s ChatGPT API into Laravel applications opens up powerful possibilities for AI-driven features. In this guide, I&apos;ll walk through a production-ready implementation.</p>
 
       <h2>Setup</h2>
       <p>First, install the OpenAI PHP client:</p>
@@ -69,8 +69,8 @@ return Cache::remember($cacheKey, 3600, function() use ($prompt) {
 
       <h2>Best Practices</h2>
       <ol>
-        <li><strong>Set appropriate max_tokens</strong> - Don't request more than you need</li>
-        <li><strong>Use system messages</strong> - Guide the AI's behavior with system prompts</li>
+        <li><strong>Set appropriate max_tokens</strong> - Don&apos;t request more than you need</li>
+        <li><strong>Use system messages</strong> - Guide the AI&apos;s behavior with system prompts</li>
         <li><strong>Implement retry logic</strong> - Handle transient failures gracefully</li>
         <li><strong>Monitor usage</strong> - Track API calls and costs</li>
         <li><strong>Sanitize inputs</strong> - Clean user inputs before sending to API</li>

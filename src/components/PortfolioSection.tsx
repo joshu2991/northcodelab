@@ -5,8 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Globe, Zap, ChevronRight } from 'lucide-react'
-import { Button } from './Button'
+import { Globe, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 
 if (typeof window !== 'undefined') {
