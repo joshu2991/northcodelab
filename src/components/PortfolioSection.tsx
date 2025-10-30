@@ -69,6 +69,24 @@ export function PortfolioSection() {
     },
     {
       id: 2,
+      title: 'YouTube AI Insight',
+      subtitle: 'AI-Powered Content Analysis for Parents',
+      description: 'A Laravel + Vue.js application MVP that helps parents analyze YouTube content for their children using AI. Parents can paste any YouTube URL and instantly get AI-powered analysis showing whether content is educational, harmless fun, or concerning. Results are cached for 24 hours to optimize performance.',
+      category: 'AI Platform',
+      status: 'Live',
+      year: '2025',
+      liveUrl: 'https://parents.northcodelab.com',
+      githubUrl: '#',
+      technologies: ['Laravel', 'Vue.js + Inertia.js', 'MySQL', 'OpenAI API', 'YouTube Data API v3', 'Tailwind CSS'],
+      features: ['🎥 Video Analysis - Instant AI-powered content analysis', '📊 Educational Scoring - See how educational, entertaining, or harmful content is', '📝 Transcript Analysis - AI analysis based on title, description, and transcript', '⏱️ Smart Caching - Results cached for 24 hours to avoid redundant API calls', '📋 Waitlist System - Join early access for future features', '🔒 Privacy-Focused - Anonymized data, never stores child identity'],
+      color: 'from-orange-500 to-red-500',
+      icon: '👨‍👩‍👧',
+      imagePath: '/portfolio/parents-tracker.png',
+      imageOrientation: 'horizontal',
+      imageAlt: 'YouTube AI Insight - AI-Powered Content Analysis for Parents'
+    },
+    {
+      id: 3,
       title: 'Care Platform',
       subtitle: 'Elderly Care & Health Management System',
       description: 'A digital health solution focused on elderly care, enabling families, caregivers, and doctors to manage medicines, monitor vital signs, and coordinate appointments. The system supports four user roles, each with tailored access, ensuring seamless collaboration between patients, caregivers, and medical professionals.',
@@ -86,7 +104,7 @@ export function PortfolioSection() {
       imageAlt: 'Care Platform - Elderly Care & Health Management System Interface'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Health Solutions',
       subtitle: 'Telemedicine & Patient Management Platform',
       description: 'A full-stack telemedicine platform designed for doctors, patients, and healthcare providers, integrating consultations, patient management, and automated marketing in one place. Built with Laravel & Livewire, it enables both clinical and business workflows to scale smoothly.',
