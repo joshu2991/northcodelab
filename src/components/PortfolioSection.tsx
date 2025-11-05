@@ -51,6 +51,24 @@ export function PortfolioSection() {
   const projects = [
     {
       id: 1,
+      title: 'Resume ATS Checker',
+      subtitle: 'AI-Powered Resume Analysis Tool',
+      description: 'A modern, AI-powered web application that analyzes resumes for ATS (Applicant Tracking System) compatibility. Upload your resume in PDF or DOCX format and receive comprehensive, actionable feedback on format, keywords, contact information, content quality, and overall ATS readiness. Uses dual analysis system combining rule-based parseability checks with OpenAI GPT-4o-mini for intelligent content assessment.',
+      category: 'Developer Tools',
+      status: 'Live',
+      year: '2025',
+      liveUrl: 'https://atstracker.northcodelab.com/resume-checker',
+      githubUrl: 'https://github.com/joshu2991/ats-tracker',
+      technologies: ['Laravel 12', 'React 19 + TypeScript', 'Inertia.js v2', 'OpenAI API (GPT-4o-mini)', 'Tailwind CSS v4', 'Framer Motion'],
+      features: ['📄 File Upload - Drag & drop PDF/DOCX support (max 5MB)', '🤖 Dual Analysis System - Rule-based + AI-powered analysis', '📊 Comprehensive ATS Scoring - 5 categories (Parseability, Format, Keywords, Contact, Content)', '🎯 Actionable Suggestions - Prioritized recommendations with impact estimates', '⚡ Real-time Analysis - Fast analysis with progress indicators', '🔒 Privacy-Focused - No data storage, analyzed locally with AI'],
+      color: 'from-indigo-500 to-purple-500',
+      icon: '📝',
+      imagePath: '/portfolio/ats-tracker.png',
+      imageOrientation: 'horizontal',
+      imageAlt: 'Resume ATS Checker - AI-Powered Resume Analysis Tool Interface'
+    },
+    {
+      id: 2,
       title: 'Baking Platform',
       subtitle: 'Online Classes & Community Hub',
       description: 'A scalable baking education platform that combines on-demand courses, live video classes, and community interaction. Users can register, purchase access via Stripe, and learn through structured lessons with progress tracking and downloadable resources.',
@@ -68,7 +86,7 @@ export function PortfolioSection() {
       imageAlt: 'Baking Platform - Online Classes & Community Hub Interface'
     },
     {
-      id: 2,
+      id: 3,
       title: 'YouTube AI Insight',
       subtitle: 'AI-Powered Content Analysis for Parents',
       description: 'A Laravel + Vue.js application MVP that helps parents analyze YouTube content for their children using AI. Parents can paste any YouTube URL and instantly get AI-powered analysis showing whether content is educational, harmless fun, or concerning. Results are cached for 24 hours to optimize performance.',
@@ -86,7 +104,7 @@ export function PortfolioSection() {
       imageAlt: 'YouTube AI Insight - AI-Powered Content Analysis for Parents'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Care Platform',
       subtitle: 'Elderly Care & Health Management System',
       description: 'A digital health solution focused on elderly care, enabling families, caregivers, and doctors to manage medicines, monitor vital signs, and coordinate appointments. The system supports four user roles, each with tailored access, ensuring seamless collaboration between patients, caregivers, and medical professionals.',
@@ -104,7 +122,7 @@ export function PortfolioSection() {
       imageAlt: 'Care Platform - Elderly Care & Health Management System Interface'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Health Solutions',
       subtitle: 'Telemedicine & Patient Management Platform',
       description: 'A full-stack telemedicine platform designed for doctors, patients, and healthcare providers, integrating consultations, patient management, and automated marketing in one place. Built with Laravel & Livewire, it enables both clinical and business workflows to scale smoothly.',
